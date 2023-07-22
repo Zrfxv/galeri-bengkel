@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('services', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('vehicle_id');
+            $table->foreignId('user_id');
+            $table->enum('type', ['ringan', 'berat']);
+            $table->integer('kilometers');
+            $table->text('problem');
             $table->timestamps();
         });
     }
