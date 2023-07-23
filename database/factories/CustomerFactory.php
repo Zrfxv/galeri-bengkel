@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use Illuminate\Support\Str;
+
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +19,23 @@ class CustomerFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => fake()->name(),
+            'phone' => fake()->phoneNumber(),
+            'email' => fake()->unique()->safeEmail(),
+            'email_verified_at' => now(),
+            'birth' => fake()->date(),
+            'gender' => fake()->randomElements(['l', 'p']),
+            'address' => fake()->address()
         ];
+    }
+
+    /**
+     * Indicate that the model's email address should be unverified.
+     */
+    public function unverified(): static
+    {
+        return $this->state(fn (array $attributes) => [
+            'email_verified_at' => null,
+        ]);
     }
 }

@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->char('phone', 15);
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
             $table->date('birth');
             $table->enum('gender', ['l', 'p']);
             $table->string('address');
