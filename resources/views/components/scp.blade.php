@@ -19,3 +19,6 @@
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <!-- Datatable -->
+    <script src="../assets/vendor/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="../assets/js/plugins-init/datatables.init.js"></script>

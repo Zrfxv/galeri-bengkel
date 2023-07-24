@@ -1,7 +1,5 @@
 <?php
 
-use App\Models\Customer;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,10 +17,7 @@ Route::get('/', function () {
     return view('auth/login');
 });
 
-Route::get('dashboard', function () {
-    return view('spv/dashboard');
-});
 
-Route::get('test', function () {
-    return Customer::count();
+Route::get('/spv', function () {
+    return view('spv/user/view');
 });
