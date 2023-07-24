@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('mechanics', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('phone');
+            $table->string('address');
+            $table->enum('level', ['m', 'pm', 'mm']); //m = mechanic, pm = pro mechanic, mm = master mechanic
+            $table->date('joined');
+            $table->boolean('resign');
             $table->timestamps();
         });
     }

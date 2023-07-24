@@ -9,7 +9,7 @@ class Mechanic extends Model
 {
     use HasFactory;
 
-    public function service()
+    public function services()
     {
         return $this->hasMany(Service::class);
     }

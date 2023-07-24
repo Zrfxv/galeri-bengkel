@@ -24,8 +24,8 @@ class CustomerFactory extends Factory
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
             'birth' => fake()->date(),
-            'gender' => fake()->randomElements(['l', 'p']),
-            'address' => fake()->address()
+            'gender' => fake()->randomElement(['l', 'p']),
+            'address' => fake()->address(),
         ];
     }
 

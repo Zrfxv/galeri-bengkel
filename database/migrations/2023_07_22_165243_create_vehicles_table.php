@@ -14,11 +14,11 @@ return new class extends Migration
         Schema::create('vehicles', function (Blueprint $table) {
             $table->id();
             $table->foreignId('customer_id');
-            $table->char('number_plate', 15)->unique();
+            $table->char('license_plate', 15)->unique();
             $table->string('brand');
-            $table->string('type');
+            $table->string('model');
             $table->string('color');
-            $table->enum('category', ['car', 'moto']);
+            $table->enum('type', ['car', 'moto']);
             $table->timestamps();
         });
     }
