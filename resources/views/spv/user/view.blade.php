@@ -34,10 +34,10 @@
                         <table id="example" class="display" style="min-width: 845px">
                           <thead>
                             <tr>
-                              <th>Project</th>
-                              <th>Client</th>
-                              <th>Users</th>
-                              <th>Status</th>
+                              <th>Nama</th>
+                              <th>Username</th>
+                              <th>Password</th>
+                              <th>Role</th>
                               <th>Actions</th>
                             </tr>
                           </thead>
