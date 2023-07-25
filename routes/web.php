@@ -34,4 +34,8 @@ Route::get('/spv', function () {
 
 Route::get('user', [Controller::class, 'index']);
 
+// ROUTE LOGIN & LOGOUT
+Route::get('/login', [AuthController::class, 'index'])->name('auth.index');
+Route::post('/login', [AuthController::class, 'authenticate'])->name('auth.login');
 
+Route::post('/logout', [AuthController::class, 'logout'])->name('auth.logout');
