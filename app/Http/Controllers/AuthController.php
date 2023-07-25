@@ -14,6 +14,26 @@ class AuthController extends Controller
         return view('auth.login');
     }
 
+    public function authenticate(Request $request)
+    {
+        // dd($request->all());
+        $credentials = $request->validate([
+            'username' => 'required',
+            'password' => 'required'
+        ]);
+
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+            return redirect()->intended(RouteServiceProvider::class);
+        }
+    }
     
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect(route('auth.index'));
+    }
 
 }
