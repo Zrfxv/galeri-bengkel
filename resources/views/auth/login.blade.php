@@ -69,10 +69,11 @@
               <h4 class="mb-2">Selamat Datang Di Galeri Bengkel</h4>
               <p class="mb-4" style="text-align: center">Silahkan Login</p>
 
-              <form id="formAuthentication" class="mb-3" action="#" method="POST">
+              <form id="formAuthentication" class="mb-3" action="{{ route('auth.login') }}" method="POST">
+                @csrf
                 <div class="mb-3">
-                  <label for="email" class="form-label">Username</label>
-                  <input type="text" class="form-control" id="email" name="email-username" placeholder="Masukan Username" autofocus />
+                  <label for="username" class="form-label">Username</label>
+                  <input type="text" class="form-control" id="username" name="username" placeholder="Masukan Username" autofocus />
                 </div>
                 <div class="mb-3 form-password-toggle">
                   <div class="d-flex justify-content-between">
