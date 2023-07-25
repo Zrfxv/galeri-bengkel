@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,3 +22,5 @@ Route::get('/', function () {
 Route::get('/spv', function () {
     return view('spv/user/view');
 });
+
+Route::get('user', [Controller::class, 'index']);
