@@ -18,6 +18,7 @@ Route::get('/', function () {
     return view('auth/login');
 });
 
+Route::controller('users', 'UserController');
 
 Route::get('/spv', function () {
     return view('spv/user/view');
