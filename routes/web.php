@@ -31,6 +31,10 @@ Route::get('/test', function(){
 Route::get('/spv', function () {
     return view('spv.user.view');
 });
+Route::get('/tambah', function () {
+    return view('spv.user.tambah');
+});
+
 
 Route::get('user', [Controller::class, 'index']);
 
