@@ -9,6 +9,8 @@ class Service extends Model
 {
     use HasFactory;
 
+    protected $guarded = ['id'];
+
     public function vehicle()
     {
         return $this->belongsTo(Vehicle::class);
