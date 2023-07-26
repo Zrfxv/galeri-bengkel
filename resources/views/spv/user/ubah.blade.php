@@ -23,20 +23,20 @@
               <!-- Content -->
 
               <div class="container-xxl flex-grow-1 container-p-y">
-                <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Data /Users /</span>Add Data</h4>
+                <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Data /Users /</span>Change Data</h4>
 
                 <!-- Striped Rows -->
                 <div class="card">
                   <div class="table-responsive text-nowrap">
                     <div class="card-header d-flex align-items-center justify-content-between">
-                        <h5 class="mb-0">Add Data User</h5>
+                        <h5 class="mb-0">Change Data User</h5>
                       </div>
                       <div class="card-body">
                         <form>
                           <div class="row mb-3">
                             <label class="col-sm-2 col-form-label" for="basic-default-name">Nama</label>
                             <div class="col-sm-10">
-                              <input type="text" class="form-control" id="basic-default-name" placeholder="Silahkan isi" />
+                              <input type="text" class="form-control" id="basic-default-name" placeholder="John Doe" />
                             </div>
                           </div>
                           <div class="row mb-3">
@@ -46,7 +46,7 @@
                                 type="text"
                                 class="form-control"
                                 id="basic-default-company"
-                                placeholder="Silahkan isi"
+                                placeholder="ACME Inc."
                               />
                             </div>
                           </div>
@@ -57,7 +57,7 @@
                                 type="text"
                                 class="form-control"
                                 id="basic-default-company"
-                                placeholder="Silahkan isi"
+                                placeholder="ACME Inc."
                               />
                             </div>
                           </div>
