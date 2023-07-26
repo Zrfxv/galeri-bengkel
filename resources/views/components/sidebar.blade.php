@@ -70,23 +70,31 @@
     <li class="menu-header small text-uppercase"><span class="menu-header-text">DATA</span></li>
     <li class="menu-item">
       <!-- Dashboard -->
-      <li class="menu-item active">
-        <a href="index.html" class="menu-link">
-          <i class="menu-icon tf-icons bx bx-user-circle"></i>
-          <div data-i18n="Analytics">User</div>
+      <li class="menu-item">
+        <a href="/spv/service" class="menu-link">
+          <i class="menu-icon tf-icons bx bxs-wrench"></i>
+          <div data-i18n="Analytics">Services</div>
+        </a>
+      </li>
+      <li class="menu-item">
+        <a href="/spv/customer" class="menu-link">
+          <i class="menu-icon tf-icons bx bxs-user-detail"></i>
+          <div data-i18n="Tables">Customers</div>
+        </a>
+      </li>
+      <li class="menu-item">
+        <a href="/spv/mechanic" class="menu-link">
+          <i class="menu-icon tf-icons bx bxs-user"></i>
+          <div data-i18n="Tables">Mechanics</div>
+        </a>
+      </li>
+      <li class="menu-item">
+        <a href="/spv" class="menu-link">
+          <i class="menu-icon tf-icons bx bxs-user"></i>
+          <div data-i18n="Analytics">Users</div>
         </a>
       </li>
     </li>
-      <!--     
-    <li class="menu-header small text-uppercase"><span class="menu-header-text">DATA</span></li>
-      <li class="menu-item">
-      <li class="menu-item">
-        <a href="tables-basic.html" class="menu-link">
-          <i class="menu-icon tf-icons bx bx-table"></i>
-          <div data-i18n="Tables">Tables</div>
-        </a>
-      </li>
-    </li>-->
   </ul>
 </aside>
 <!-- / Menu -->

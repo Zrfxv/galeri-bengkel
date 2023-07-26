@@ -17,26 +17,44 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return redirect()->to('/test');
+    return redirect()->to('/spv');
 })->middleware('auth');
 
-// TESTING
-Route::get('/test', function(){
-    return view('test', [
-        'users' => User::all()
-    ]);
-});
 
 // ROUTE SPV
 Route::get('/spv', function () {
-    return view('spv.user.view');
+    return view('spv.user.view' ,[
+        'users' => User::all()
+    ]);
 });
 Route::get('/tambah', function () {
     return view('spv.user.tambah');
 });
 
+// ROUTE Customer
+Route::get('/spv/customer', function () {
+    return view('spv.customer.viewCustomers',[
+        'customers' => User::all()
+    ]);
+});
+Route::get('/tambahcustomer', function () {
+    return view('spv.customer.tambahCustomers');
+});
+
+// ROUTE Mechanics
+Route::get('/spv/mechanic', function () {
+    return view('spv.mechanic.viewMechanic',[
+        'mechanics' => User::all()
+    ]);
+});
+Route::get('/tambahmechanic', function () {
+    return view('spv.mechanic.tambahMechanic');
+});
+
 
 Route::get('user', [Controller::class, 'index']);
+
+
 
 // ROUTE LOGIN & LOGOUT
 Route::get('/login', [AuthController::class, 'index'])->name('auth.index');
