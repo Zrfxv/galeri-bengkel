@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
         User::create([
             'name' => 'Supervisor',
             'username' => 'spv',
-            'role' => 'supervisor',
+            'role' => false,
             'password' => bcrypt('12345')
         ]);
 
