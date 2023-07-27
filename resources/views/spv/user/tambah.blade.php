@@ -70,8 +70,8 @@
 
                               <select class="form-select" name="role" id="exampleFormControlSelect1" aria-label="Default select example">
                                 <option selected>Silahkan Pilih</option>
-                                <option value="1">SPV</option>
-                                <option value="2">Admin</option>
+                                <option value="0">SPV</option>
+                                <option value="1">Admin</option>
                               </select>
                             </div>
                           </div>
