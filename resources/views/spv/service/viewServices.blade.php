@@ -34,8 +34,7 @@
                         <table id="example" class="display" style="min-width: 845px">
                           <thead>
                             <tr>
-                              <th>Nama Customer</th>
-                              <th>Nama User</th>
+                              <th>License Plat</th>
                               <th>Detail Services</th>
                               <th>Action</th>
                             </tr>
@@ -44,7 +43,6 @@
                             #
                             <tr>
                               <td><i class="fab fa-angular fa-lg text-danger me-3"></i><strong>#</strong></td>
-                              <td>#</td>
                               <td>
                                 <a href="" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Detail">
                                   Detail
@@ -91,13 +89,13 @@
       </div>
       <div class="modal-body">
         <div class="row mb-3">
-          <label class="col-sm-2 col-form-label" for="basic-default-name">Nama Customer</label>
+          <label class="col-sm-2 col-form-label" for="basic-default-name">Vehicles ID</label>
           <div class="col-sm-10">
             <input type="text" class="form-control" name="name" id="basic-default-name" placeholder="Silahkan isi" readonly/>
           </div>
         </div>
         <div class="row mb-3">
-          <label class="col-sm-2 col-form-label" for="basic-default-company">Nama User</label>
+          <label class="col-sm-2 col-form-label" for="basic-default-company">User ID</label>
           <div class="col-sm-10">
             <input
               type="text"
