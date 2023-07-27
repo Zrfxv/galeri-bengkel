@@ -45,7 +45,11 @@
                             <tr>
                               <td><i class="fab fa-angular fa-lg text-danger me-3"></i><strong>#</strong></td>
                               <td>#</td>
-                              <td><a href="/detail" class="btn btn-primary">Detail</a></td>
+                              <td>
+                                <a href="" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Detail">
+                                  Detail
+                                </a>
+                              </td>
                               <td>
                                 <div class="dropdown">
                                   <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
@@ -71,6 +75,86 @@
                            
                           </tbody>
                         </table>
+
+<!-- Extra Large Modal -->
+<div class="modal fade" id="Detail" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel4">Detail Information Service</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <div class="row mb-3">
+          <label class="col-sm-2 col-form-label" for="basic-default-name">Nama Customer</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" name="name" id="basic-default-name" placeholder="Silahkan isi" readonly/>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label class="col-sm-2 col-form-label" for="basic-default-company">Nama User</label>
+          <div class="col-sm-10">
+            <input
+              type="text"
+              class="form-control" name="phone"
+              id="basic-default-company"
+              placeholder="Silahkan isi"
+              readonly
+            />
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label class="col-sm-2 col-form-label" for="basic-default-company">Damage Type</label>
+          <div class="col-sm-10">
+
+            <select class="form-select" name="level" id="exampleFormControlSelect1" aria-label="Default select example" readonly>
+              <option selected>Silahkan Pilih</option>
+              <option value="ringan">Ringan</option>
+              <option value="berat">Berat</option>
+            </select>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label class="col-sm-2 col-form-label" for="basic-default-company">Kilometers</label>
+          <div class="col-sm-10">
+            <input
+              type="text"
+              class="form-control" name="address"
+              id="basic-default-company"
+              placeholder="Silahkan isi"
+              readonly
+            />
+          </div>
+        </div>
+        
+        <div class="row mb-3">
+          <label class="col-sm-2 col-form-label" for="basic-default-message">Problem</label>
+          <div class="col-sm-10">
+            <textarea
+              id="basic-default-message"
+              class="form-control"
+              placeholder="Silahkan isi"
+              aria-label="Hi, Do you have a moment to talk Joe?"
+              aria-describedby="basic-icon-default-message2"
+              readonly
+            ></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
                       </div>
                     </div>
                   </div>
