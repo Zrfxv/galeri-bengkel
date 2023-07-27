@@ -35,20 +35,28 @@
                       <form action="#" method="POST">
               
                           <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label" for="basic-default-name">Nama Customer</label>
+                            <label class="col-sm-2 col-form-label" for="basic-default-name">Vehicles</label>
                             <div class="col-sm-10">
-                              <input type="text" class="form-control" name="name" id="basic-default-name" placeholder="Silahkan isi" />
+                              <input type="text" class="form-control" name="name" id="basic-default-name" placeholder="Silahkan isi" />       
+                              
+                              
+                              <!-- Tombol untuk membuka modal -->
+
+                              <a href="" data-bs-toggle="modal" data-bs-target="#exLargeModal">
+                                New Vehicles
+                              </a>
+
                             </div>
                           </div>
                           <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label" for="basic-default-company">Nama User</label>
+                            <label class="col-sm-2 col-form-label" for="basic-default-company">User ID</label>
                             <div class="col-sm-10">
                               <input
-                                type="text"
+                                type="number"
                                 class="form-control" name="phone"
                                 id="basic-default-company"
                                 placeholder="Silahkan isi"
-                                
+                                readonly
                               />
                             </div>
                           </div>
@@ -96,6 +104,98 @@
                             </div>
                           </div>
                         </form>
+
+<!-- Extra Large Modal -->
+<div class="modal fade" id="exLargeModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel4">Add Data Vehilces</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <div class="row mb-3">
+          <label class="col-sm-2 col-form-label" for="basic-default-name">Nama Customer</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" name="name" id="basic-default-name" placeholder="Silahkan isi" />
+            <a href="{{ route('customer.create') }}">
+              New Customer
+            </a>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label class="col-sm-2 col-form-label" for="basic-default-company">License Plat</label>
+          <div class="col-sm-10">
+            <input
+              type="text"
+              class="form-control" name="phone"
+              id="basic-default-company"
+              placeholder="Silahkan isi"
+            />
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label class="col-sm-2 col-form-label" for="basic-default-company">Brand</label>
+          <div class="col-sm-10">
+            <input
+              type="text"
+              class="form-control" name="address"
+              id="basic-default-company"
+              placeholder="Silahkan isi"
+            />
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label class="col-sm-2 col-form-label" for="basic-default-company">Model</label>
+          <div class="col-sm-10">
+            <input
+              type="text"
+              class="form-control" name="address"
+              id="basic-default-company"
+              placeholder="Silahkan isi"
+            />
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label class="col-sm-2 col-form-label" for="basic-default-company">Color</label>
+          <div class="col-sm-10">
+            <input
+              type="text"
+              class="form-control" name="address"
+              id="basic-default-company"
+              placeholder="Silahkan isi"
+            />
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label class="col-sm-2 col-form-label" for="basic-default-company">Type</label>
+          <div class="col-sm-10">
+
+            <select class="form-select" name="level" id="exampleFormControlSelect1" aria-label="Default select example">
+              <option selected>Silahkan Pilih</option>
+              <option value="car">Car</option>
+              <option value="moto">Moto</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+        <button type="button" class="btn btn-primary">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+                        
                       </div>
                   </div>
                 </div>

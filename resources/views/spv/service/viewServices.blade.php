@@ -29,7 +29,7 @@
                 <div class="card">
                   <div class="table-responsive text-nowrap">
                     <div class="card-body">
-                      <a href="#" class="btn btn-primary">Add Data</a><p>
+                      <a href="/tambah" class="btn btn-primary">New Service</a><p>
                       <div class="table-responsive">
                         <table id="example" class="display" style="min-width: 845px">
                           <thead>
@@ -52,7 +52,7 @@
                                     <i class="bx bx-dots-vertical-rounded"></i>
                                   </button>
                                   <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="#"
+                                    <a class="dropdown-item" href="/ubah"
                                       ><i class="bx bx-edit-alt me-1"></i> Edit</a
                                     >
                                     <form action="#" method="post">
