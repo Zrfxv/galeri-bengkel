@@ -68,7 +68,6 @@
               <!-- /Logo -->
               <h4 class="mb-2">Selamat Datang Di Galeri Bengkel</h4>
               <p class="mb-4" style="text-align: center">Silahkan Login</p>
-
               <form id="formAuthentication" class="mb-3" action="{{ route('auth.login') }}" method="POST">
                 @csrf
                 <div class="mb-3">
