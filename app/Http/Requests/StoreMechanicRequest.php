@@ -11,7 +11,7 @@ class StoreMechanicRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,12 @@ class StoreMechanicRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => 'required',
+            'phone' => 'required',
+            'address' => 'required',
+            'level' => 'required',
+            'joined' => 'required',
+            'resign' => 'required',
         ];
     }
 }
