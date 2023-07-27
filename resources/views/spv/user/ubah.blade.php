@@ -32,11 +32,13 @@
                         <h5 class="mb-0">Change Data User</h5>
                       </div>
                       <div class="card-body">
-                        <form>
+                        <form action="{{ route('users.update', $user) }}" method="POST">
+                          @csrf
+                          @method('PUT')
                           <div class="row mb-3">
                             <label class="col-sm-2 col-form-label" for="basic-default-name">Nama</label>
                             <div class="col-sm-10">
-                              <input type="text" class="form-control" id="basic-default-name" placeholder="John Doe" />
+                              <input type="text" class="form-control" name="name" id="basic-default-name" value="{{ $user->name }}"/>
                             </div>
                           </div>
                           <div class="row mb-3">
@@ -44,9 +46,9 @@
                             <div class="col-sm-10">
                               <input
                                 type="text"
-                                class="form-control"
+                                class="form-control" name="username"
                                 id="basic-default-company"
-                                placeholder="ACME Inc."
+                                value="{{ $user->username }}"
                               />
                             </div>
                           </div>
@@ -54,10 +56,10 @@
                             <label class="col-sm-2 col-form-label" for="basic-default-company">Password</label>
                             <div class="col-sm-10">
                               <input
-                                type="text"
-                                class="form-control"
+                                type="password"
+                                class="form-control" name="password"
                                 id="basic-default-company"
-                                placeholder="ACME Inc."
+                                placeholder=""
                               />
                             </div>
                           </div>
@@ -65,16 +67,16 @@
                             <label class="col-sm-2 col-form-label" for="basic-default-company">Role</label>
                             <div class="col-sm-10">
 
-                              <select class="form-select" id="exampleFormControlSelect1" aria-label="Default select example">
-                                <option selected>Silahkan Pilih</option>
-                                <option value="1">SPV</option>
-                                <option value="2">Admin</option>
+                              <select class="form-select" name="role" id="exampleFormControlSelect1" aria-label="Default select example">
+                                <option>Silahkan Pilih </option>
+                                <option value="1" {{ ($user->role === 0) ? 'selected' : '' }}>SPV</option>
+                                <option value="2" {{ ($user->role === 1) ? 'selected' : '' }}>Admin</option>
                               </select>
                             </div>
                           </div>
                           <div class="row justify-content-end">
                             <div class="col-sm-10">
-                              <button type="submit" class="btn btn-primary">Simpan</button>
+                              <button type="submit" class="btn btn-primary">Ubah</button>
                             </div>
                           </div>
                         </form>

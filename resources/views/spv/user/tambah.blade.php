@@ -32,11 +32,12 @@
                         <h5 class="mb-0">Add Data User</h5>
                       </div>
                       <div class="card-body">
-                        <form>
+                        <form action="{{ route('users.store') }}" method="POST">
+                          @csrf
                           <div class="row mb-3">
                             <label class="col-sm-2 col-form-label" for="basic-default-name">Nama</label>
                             <div class="col-sm-10">
-                              <input type="text" class="form-control" id="basic-default-name" placeholder="Silahkan isi" />
+                              <input type="text" class="form-control" name="name" id="basic-default-name" placeholder="Silahkan isi" />
                             </div>
                           </div>
                           <div class="row mb-3">
@@ -44,6 +45,7 @@
                             <div class="col-sm-10">
                               <input
                                 type="text"
+                                name="username"
                                 class="form-control"
                                 id="basic-default-company"
                                 placeholder="Silahkan isi"
@@ -55,6 +57,7 @@
                             <div class="col-sm-10">
                               <input
                                 type="text"
+                                name="password"
                                 class="form-control"
                                 id="basic-default-company"
                                 placeholder="Silahkan isi"
@@ -65,7 +68,7 @@
                             <label class="col-sm-2 col-form-label" for="basic-default-company">Role</label>
                             <div class="col-sm-10">
 
-                              <select class="form-select" id="exampleFormControlSelect1" aria-label="Default select example">
+                              <select class="form-select" name="role" id="exampleFormControlSelect1" aria-label="Default select example">
                                 <option selected>Silahkan Pilih</option>
                                 <option value="1">SPV</option>
                                 <option value="2">Admin</option>

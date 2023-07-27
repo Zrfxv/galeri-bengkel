@@ -29,7 +29,7 @@
                 <div class="card">
                   <div class="table-responsive text-nowrap">
                     <div class="card-body">
-                      <a href="/tambah" class="btn btn-primary">Add Data</a><p>
+                      <a href="{{ route('users.create') }}" class="btn btn-primary">Add Data</a><p>
                       <div class="table-responsive">
                         <table id="example" class="display" style="min-width: 845px">
                           <thead>
@@ -45,19 +45,23 @@
                             <tr>
                               <td><i class="fab fa-angular fa-lg text-danger me-3"></i><strong>{{ $user->name }}</strong></td>
                               <td>{{ $user->username }}</td>
-                              <td><strong>{{ $user->role }}</strong></td>
+                              <td><strong>{{ ($user->role === 0) ? 'Supervisor' : 'Admin' }}</strong></td>
                               <td>
                                 <div class="dropdown">
                                   <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
                                     <i class="bx bx-dots-vertical-rounded"></i>
                                   </button>
                                   <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="javascript:void(0);"
+                                    <a class="dropdown-item" href="{{ route('users.edit', $user) }}"
                                       ><i class="bx bx-edit-alt me-1"></i> Edit</a
                                     >
-                                    <a class="dropdown-item" href="javascript:void(0);"
-                                      ><i class="bx bx-trash me-1"></i> Delete</a
-                                    >
+                                    <form action="{{ route('users.delete', $user) }}" method="post">
+                                      @csrf
+                                      @method('DELETE')
+                                      <button class="dropdown-item"
+                                        ><i class="bx bx-trash me-1"></i> Delete</button>
+                                      
+                                    </form>
                                   </div>
                                 </div>
                               </td>
