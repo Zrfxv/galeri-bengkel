@@ -89,7 +89,7 @@
         </a>
       </li>
       <li class="menu-item">
-        <a href="/spv" class="menu-link">
+        <a href="{{ route('users.index') }}" class="menu-link">
           <i class="menu-icon tf-icons bx bxs-user"></i>
           <div data-i18n="Analytics">Users</div>
         </a>
