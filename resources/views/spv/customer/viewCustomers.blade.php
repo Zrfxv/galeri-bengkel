@@ -29,7 +29,7 @@
                 <div class="card">
                   <div class="table-responsive text-nowrap">
                     <div class="card-body">
-                      <a href="/tambahcustomer" class="btn btn-primary">Add Data</a><p>
+                      <a href="{{ route('customer.create') }}" class="btn btn-primary">Add Data</a><p>
                       <div class="table-responsive">
                         <table id="example" class="display" style="min-width: 845px">
                           <thead>
@@ -58,12 +58,16 @@
                                     <i class="bx bx-dots-vertical-rounded"></i>
                                   </button>
                                   <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="javascript:void(0);"
+                                    <a class="dropdown-item" href="{{ route('customer.edit', $customer) }}"
                                       ><i class="bx bx-edit-alt me-1"></i> Edit</a
                                     >
-                                    <a class="dropdown-item" href="javascript:void(0);"
-                                      ><i class="bx bx-trash me-1"></i> Delete</a
-                                    >
+                                    <form action="{{ route('customer.destroy', $customer) }}" method="post">
+                                      @csrf
+                                      @method('DELETE')
+                                      <button class="dropdown-item"
+                                        ><i class="bx bx-trash me-1"></i> Delete</button>
+                                      
+                                    </form>
                                   </div>
                                 </div>
                               </td>
