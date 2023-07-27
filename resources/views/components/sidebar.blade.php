@@ -77,13 +77,13 @@
         </a>
       </li>
       <li class="menu-item">
-        <a href="/spv/customer" class="menu-link">
+        <a href="{{ route('customer.index') }}" class="menu-link">
           <i class="menu-icon tf-icons bx bxs-user-detail"></i>
           <div data-i18n="Tables">Customers</div>
         </a>
       </li>
       <li class="menu-item">
-        <a href="/spv/mechanic" class="menu-link">
+        <a href="{{ route('mechanic.index') }}" class="menu-link">
           <i class="menu-icon tf-icons bx bxs-user"></i>
           <div data-i18n="Tables">Mechanics</div>
         </a>
