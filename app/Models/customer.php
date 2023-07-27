@@ -11,6 +11,8 @@ class Customer extends Model
 
     protected $guarded = ['id'];
 
+    protected $with = ['vehicle'];
+
     public function vehicles()
     {
         return $this->hasMany(Vehicle::class);
