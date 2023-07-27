@@ -13,7 +13,9 @@ class MechanicController extends Controller
      */
     public function index()
     {
-        //
+        return view('spv.mechanic.viewMechanic', [
+            'mechanics' => Mechanic::all()
+        ]);
     }
 
     /**
@@ -21,7 +23,7 @@ class MechanicController extends Controller
      */
     public function create()
     {
-        //
+        return view('spv.mechanic.tambahMechanic');
     }
 
     /**
@@ -29,7 +31,12 @@ class MechanicController extends Controller
      */
     public function store(StoreMechanicRequest $request)
     {
-        //
+        try {
+            Mechanic::create($request->all());
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+        return redirect()->to(route('mechanic.index'));
     }
 
     /**
@@ -45,7 +52,9 @@ class MechanicController extends Controller
      */
     public function edit(Mechanic $mechanic)
     {
-        //
+        return view('spv.mechanic.ubahMechanic', [
+            'mechanic' => $mechanic
+        ]);
     }
 
     /**
@@ -54,6 +63,8 @@ class MechanicController extends Controller
     public function update(UpdateMechanicRequest $request, Mechanic $mechanic)
     {
         //
+        $mechanic->update($request->all());
+        return redirect()->to(route('mechanic.index'));
     }
 
     /**
@@ -61,6 +72,7 @@ class MechanicController extends Controller
      */
     public function destroy(Mechanic $mechanic)
     {
-        //
+        $mechanic->delete();
+        return redirect()->to(route('mechanic.index'));
     }
 }
