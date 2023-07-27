@@ -11,6 +11,8 @@ class Service extends Model
 
     protected $guarded = ['id'];
 
+    protected $with = ['customer', 'user', 'mechanic'];
+
     public function vehicle()
     {
         return $this->belongsTo(Vehicle::class);
