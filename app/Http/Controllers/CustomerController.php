@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StorecustomerRequest;
 use App\Http\Requests\UpdatecustomerRequest;
 use App\Models\customer;
+use App\Models\User;
 
 class CustomerController extends Controller
 {
@@ -13,15 +14,17 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        //
+        return view('spv.customer.viewCustomers', [
+            'customers' => customer::all()
+        ]);
     }
-
+    
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        //
+        return view('spv.customer.tambahCustomers');
     }
 
     /**
@@ -29,7 +32,13 @@ class CustomerController extends Controller
      */
     public function store(StorecustomerRequest $request)
     {
-        //
+        try {
+            customer::create($request->all());
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+        return redirect()->to(route('customer.index'));
+
     }
 
     /**
@@ -45,7 +54,9 @@ class CustomerController extends Controller
      */
     public function edit(customer $customer)
     {
-        //
+        return view('spv.customer.ubahCustomers', [
+            'customer' => $customer
+        ]);
     }
 
     /**
@@ -53,7 +64,8 @@ class CustomerController extends Controller
      */
     public function update(UpdatecustomerRequest $request, customer $customer)
     {
-        //
+        $customer->update($request->all());
+        return redirect()->to(route('customer.index'));
     }
 
     /**
@@ -61,6 +73,7 @@ class CustomerController extends Controller
      */
     public function destroy(customer $customer)
     {
-        //
+        $customer->delete();
+        return redirect()->to(route('customer.index'));
     }
 }
