@@ -29,7 +29,7 @@
                 <div class="card">
                   <div class="table-responsive text-nowrap">
                     <div class="card-body">
-                      <a href="/tambahmechanic" class="btn btn-primary">Add Data</a><p>
+                      <a href="{{ route('mechanic.create') }}" class="btn btn-primary">Add Data</a><p>
                       <div class="table-responsive">
                         <table id="example" class="display" style="min-width: 845px">
                           <thead>
@@ -48,7 +48,7 @@
                             <tr>
                               <td><i class="fab fa-angular fa-lg text-danger me-3"></i><strong>{{ $mecha->name }}</strong></td>
                               <td>{{ $mecha->phone }}</td>
-                              <td>  {{ $mecha->adress }}</td>
+                              <td>  {{ $mecha->address }}</td>
                               <td>  {{ $mecha->level }}</td>
                               <td>  {{ $mecha->joined }}</td>
                               <td>  {{ $mecha->resign }}</td>
@@ -58,12 +58,16 @@
                                     <i class="bx bx-dots-vertical-rounded"></i>
                                   </button>
                                   <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="javascript:void(0);"
+                                    <a class="dropdown-item" href="{{ route('mechanic.edit', $mecha) }}"
                                       ><i class="bx bx-edit-alt me-1"></i> Edit</a
                                     >
-                                    <a class="dropdown-item" href="javascript:void(0);"
-                                      ><i class="bx bx-trash me-1"></i> Delete</a
-                                    >
+                                    <form action="{{ route('mechanic.destroy', $mecha) }}" method="post">
+                                      @csrf
+                                      @method('DELETE')
+                                      <button class="dropdown-item"
+                                        ><i class="bx bx-trash me-1"></i> Delete</button>
+                                      
+                                    </form>
                                   </div>
                                 </div>
                               </td>
