@@ -71,7 +71,7 @@
     <li class="menu-item">
       <!-- Dashboard -->
       <li class="menu-item">
-        <a href="/spv/service" class="menu-link">
+        <a href="/service" class="menu-link">
           <i class="menu-icon tf-icons bx bxs-wrench"></i>
           <div data-i18n="Analytics">Services</div>
         </a>
@@ -80,6 +80,12 @@
         <a href="{{ route('customer.index') }}" class="menu-link">
           <i class="menu-icon tf-icons bx bxs-user-detail"></i>
           <div data-i18n="Tables">Customers</div>
+        </a>
+      </li>
+      <li class="menu-item">
+        <a href="/vehicles" class="menu-link">
+          <i class="menu-icon tf-icons bx bxs-car"></i>
+          <div data-i18n="Tables">Vehicles</div>
         </a>
       </li>
       <li class="menu-item">
