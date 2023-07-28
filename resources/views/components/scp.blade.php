@@ -31,3 +31,11 @@
         $('.select2').select2();
     });
 </script>
+
+<script>
+    function showSuccessModal() {
+        // Show the success modal
+        $('#successModal').modal('show');
+    }
+</script>
+
