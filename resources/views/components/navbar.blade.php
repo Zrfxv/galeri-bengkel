@@ -170,6 +170,7 @@
   </div>
  <!-- / Navbar -->
 
+
  <!-- Profile Confirmation Modal -->
 <div class="modal fade" id="profileConfirmationModal" tabindex="-1" role="dialog" aria-labelledby="profileConfirmationModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -188,6 +189,9 @@
       </div>
   </div>
 </div>
+
+
+<!-- Modal USERS -->
 
 <!-- Delete Confirmation Modal -->
 <div class="modal fade" id="deleteConfirmationModal" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmationModalLabel" aria-hidden="true">
@@ -241,6 +245,65 @@
           <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
               <button type="button" class="btn btn-primary" id="editButton">Yes</button>
+          </div>
+      </div>
+  </div>
+</div>
+
+<!-- Modal MECHANICS -->
+
+<!-- Delete Confirmation Modal -->
+<div class="modal fade" id="deleteMechaConfirmationModal" tabindex="-1" role="dialog" aria-labelledby="deleteMechaConfirmationModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="deleteMechaConfirmationModalLabel">Konfirmasi</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              Yakin ingin menghapus data ini ?
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+              <button type="button" class="btn btn-danger" id="deleteMechaButton">Delete</button>
+          </div>
+      </div>
+  </div>
+</div>
+
+<!-- Add Confirmation Modal -->
+<div class="modal fade" id="addMechaConfirmationModal" tabindex="-1" role="dialog" aria-labelledby="addMechaConfirmationModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="addMechaConfirmationModalLabel">Konfirmasi</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              Ingin menyimpan data ?
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+              <button type="button" class="btn btn-primary" id="addMechaButton">Yes</button>
+          </div>
+      </div>
+  </div>
+</div>
+
+<!-- Edit Confirmation Modal -->
+<div class="modal fade" id="editMechaConfirmationModal" tabindex="-1" role="dialog" aria-labelledby="editMechaConfirmationModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="editMechaConfirmationModalLabel">Konfirmasi</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              Yakin ingin merubah data ini ?
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+              <button type="button" class="btn btn-primary" id="editMechaButton">Yes</button>
           </div>
       </div>
   </div>
