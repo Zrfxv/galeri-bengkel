@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreserviceRequest;
 use App\Http\Requests\UpdateserviceRequest;
+use App\Models\Customer;
 use App\Models\service;
+use App\Models\Vehicle;
 
 class ServiceController extends Controller
 {
@@ -24,7 +26,10 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        return view('spv.service.tambahServices');
+        return view('spv.service.createServices', [
+            'customers' => customer::all(),
+            'vehicles' => vehicle::all()
+        ]);
     }
 
     /**
@@ -32,7 +37,7 @@ class ServiceController extends Controller
      */
     public function store(StoreserviceRequest $request)
     {
-        dd($request->all()); 
+        dd($request->all());
         service::create($request->all());
         // NOT YET FINISHED
         return redirect()->to(route('service.index'));
@@ -59,7 +64,7 @@ class ServiceController extends Controller
      */
     public function update(UpdateserviceRequest $request, service $service)
     {
-        dd($request->all()); 
+        dd($request->all());
         // NOT YET FINISHED
         $service->update($request->all());
         return redirect()->to(route('service.index'));
