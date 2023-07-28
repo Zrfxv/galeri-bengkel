@@ -32,6 +32,7 @@
           <div data-i18n="Tables">Vehicles</div>
         </a>
       </li>
+      @if (auth()->user()->role != 1)
       <li class="menu-item">
         <a href="{{ route('mechanic.index') }}" class="menu-link">
           <i class="menu-icon tf-icons bx bxs-user"></i>
@@ -44,7 +45,8 @@
           <div data-i18n="Analytics">Users</div>
         </a>
       </li>
-    </li>
+    </li> 
+      @endif
   </ul>
 </aside>
 <!-- / Menu -->
