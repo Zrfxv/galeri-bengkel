@@ -56,7 +56,7 @@
                             <label class="col-sm-2 col-form-label" for="basic-default-company">Password</label>
                             <div class="col-sm-10">
                               <input
-                                type="text"
+                                type="password"
                                 name="password"
                                 class="form-control"
                                 id="basic-default-company"
