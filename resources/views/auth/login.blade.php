@@ -9,6 +9,12 @@
       <div class="authentication-wrapper authentication-basic container-p-y">
         <div class="authentication-inner">
           <!-- Register -->
+          @if (session()->has('login-error'))
+              <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                  <strong>{{ session('login-error') }}</strong>
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+          @endif
           <div class="card">
             <div class="card-body">
               <!-- Logo -->
