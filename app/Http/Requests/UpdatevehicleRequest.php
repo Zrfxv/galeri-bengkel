@@ -11,7 +11,7 @@ class UpdatevehicleRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,12 @@ class UpdatevehicleRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'customer_id' => 'required',
+            'license_plate' => 'required',
+            'brand' => 'required',
+            'model' => 'required',
+            'color' => 'required',
+            'type' => 'required',
         ];
     }
 }

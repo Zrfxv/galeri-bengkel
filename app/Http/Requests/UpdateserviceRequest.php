@@ -11,7 +11,7 @@ class UpdateserviceRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,11 @@ class UpdateserviceRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            // 'vehicle_id' => 'required',
+            // 'user_id' => 'required',
+            // 'type' => 'required',
+            // 'kilometers' => 'required', 
+            // 'problem' => 'required',
         ];
     }
 }
