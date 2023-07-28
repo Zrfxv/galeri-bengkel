@@ -13,7 +13,10 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        //
+        // dump(service::find(1));
+        return view('spv.service.viewServices', [
+            'services' => service::all()
+        ]);
     }
 
     /**
@@ -21,7 +24,7 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        //
+        return view('spv.service.tambahServices');
     }
 
     /**
@@ -29,7 +32,10 @@ class ServiceController extends Controller
      */
     public function store(StoreserviceRequest $request)
     {
-        //
+        dd($request->all()); 
+        service::create($request->all());
+        // NOT YET FINISHED
+        return redirect()->to(route('service.index'));
     }
 
     /**
@@ -45,7 +51,7 @@ class ServiceController extends Controller
      */
     public function edit(service $service)
     {
-        //
+        return view('spv.service.ubahServices', compact('service'));
     }
 
     /**
@@ -53,7 +59,10 @@ class ServiceController extends Controller
      */
     public function update(UpdateserviceRequest $request, service $service)
     {
-        //
+        dd($request->all()); 
+        // NOT YET FINISHED
+        $service->update($request->all());
+        return redirect()->to(route('service.index'));
     }
 
     /**
@@ -61,6 +70,7 @@ class ServiceController extends Controller
      */
     public function destroy(service $service)
     {
-        //
+        $service->delete();
+        return redirect()->to(route('service.index'));
     }
 }
