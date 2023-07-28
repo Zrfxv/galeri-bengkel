@@ -32,12 +32,13 @@
                       <h5 class="mb-0">Edit Data Vehicles</h5>
                     </div>
                     <div class="card-body">
-                      <form action="#" method="POST">
+                      <form action="{{ route('vehicle.update', $vehicle) }}" method="POST">
                         @csrf
+                        @method('PUT')
                         <div class="row mb-3">
                           <label class="col-sm-2 col-form-label" for="basic-default-name">Nama Customer</label>
                           <div class="col-sm-10">
-                            <input type="text" class="form-control" name="name" id="basic-default-name" placeholder="Silahkan isi" />
+                            <input type="text" class="form-control" value="{{ $vehicle->customer_id }}" name="customer_id" id="basic-default-name" placeholder="Silahkan isi" />
                           </div>
                         </div>
                         <div class="row mb-3">
@@ -45,7 +46,7 @@
                           <div class="col-sm-10">
                             <input
                               type="text"
-                              class="form-control" name="phone"
+                              class="form-control" value="{{ $vehicle->license_plate }}" name="license_plate"
                               id="basic-default-company"
                               placeholder="Silahkan isi"
                             />
@@ -56,7 +57,7 @@
                           <div class="col-sm-10">
                             <input
                               type="text"
-                              class="form-control" name="address"
+                              class="form-control" value="{{ $vehicle->brand }}" name="brand"
                               id="basic-default-company"
                               placeholder="Silahkan isi"
                             />
@@ -67,7 +68,7 @@
                           <div class="col-sm-10">
                             <input
                               type="text"
-                              class="form-control" name="address"
+                              class="form-control" value="{{ $vehicle->model }}" name="model"
                               id="basic-default-company"
                               placeholder="Silahkan isi"
                             />
@@ -78,7 +79,7 @@
                           <div class="col-sm-10">
                             <input
                               type="text"
-                              class="form-control" name="address"
+                              class="form-control" value="{{ $vehicle->color }}" name="color"
                               id="basic-default-company"
                               placeholder="Silahkan isi"
                             />
@@ -88,7 +89,7 @@
                           <label class="col-sm-2 col-form-label" for="basic-default-company">Type</label>
                           <div class="col-sm-10">
 
-                            <select class="form-select" name="level" id="exampleFormControlSelect1" aria-label="Default select example">
+                            <select class="form-select" name="type" id="exampleFormControlSelect1" aria-label="Default select example">
                               <option selected>Silahkan Pilih</option>
                               <option value="car">Car</option>
                               <option value="moto">Moto</option>

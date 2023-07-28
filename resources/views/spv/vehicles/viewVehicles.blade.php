@@ -29,7 +29,7 @@
                 <div class="card">
                   <div class="table-responsive text-nowrap">
                     <div class="card-body">
-                      <a href="/tambahVeh" class="btn btn-primary">Add Data</a><p>
+                      <a href="{{ route('vehicle.create') }}" class="btn btn-primary">Add Data</a><p>
                       <div class="table-responsive">
                         <table id="example" class="display" style="min-width: 845px">
                           <thead>
@@ -38,32 +38,30 @@
                               <th>License Plat</th>
                               <th>Brand</th>
                               <th>Model</th>
-                              <th>Brand</th>
                               <th>Color</th>
                               <th>Type</th>
                               <th>Action</th>
                             </tr>
                           </thead>
                           <tbody class="table-border-bottom-0">
-                            #
+                            @foreach ($vehicles as $vehicle)
                             <tr>
-                              <td><i class="fab fa-angular fa-lg text-danger me-3"></i><strong>#</strong></td>
-                              <td>#</td>
-                              <td>#</td>
-                              <td>#</td>
-                              <td>#</td>
-                              <td>#</td>
-                              <td>#</td>
+                              <td><i class="fab fa-angular fa-lg text-danger me-3"></i><strong>{{ $vehicle->customer_id }}</strong></td>
+                              <td>{{ $vehicle->license_plate }}</td>
+                              <td>{{ $vehicle->brand }}</td>
+                              <td>{{ $vehicle->model }}</td>
+                              <td>{{ $vehicle->color }}</td>
+                              <td>{{ $vehicle->type }}</td>
                               <td>
                                 <div class="dropdown">
                                   <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
                                     <i class="bx bx-dots-vertical-rounded"></i>
                                   </button>
                                   <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="/ubahVeh"
+                                    <a class="dropdown-item" href="{{ route('vehicle.edit', $vehicle) }}"
                                       ><i class="bx bx-edit-alt me-1"></i> Edit</a
                                     >
-                                    <form action="#" method="post">
+                                    <form action="{{ route('vehicle.destroy', $vehicle) }}" method="post">
                                       @csrf
                                       @method('DELETE')
                                       <button class="dropdown-item"
@@ -74,8 +72,7 @@
                                 </div>
                               </td>
                             </tr>
-
-                           #
+                            @endforeach
                            
                           </tbody>
                         </table>
