@@ -15,7 +15,7 @@ class CustomerController extends Controller
     public function index()
     {
         return view('spv.customer.viewCustomers', [
-            'customers' => customer::all()
+            'customers' => customer::with('vehicles')
         ]);
     }
     
