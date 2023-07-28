@@ -33,7 +33,7 @@ class DatabaseSeeder extends Seeder
         User::factory(5)->create();
         Customer::factory(50)->create();
         Mechanic::factory(10)->create();
-        Vehicle::factory(200)->create();
-        Service::factory(500)->create();
+        Vehicle::factory(50)->create();
+        Service::factory(50)->create();
     }
 }
