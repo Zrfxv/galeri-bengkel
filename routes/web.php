@@ -41,19 +41,22 @@ Route::middleware(['auth'])->group(function () {
     // ROUTE SERVICE
     Route::resource('service', ServiceController::class);
     
-    // ROUTE MECHANIC
-    Route::resource('mechanic', MechanicController::class);
-    
-    // ROUTE GROUP USERS ( SPV / ADMIN )
-    Route::prefix('users')->group(function () {
+    Route::middleware('isSupervisor')->group(function () {
         
-        Route::get('/', [UserController::class, 'index'])->name('users.index');
-        Route::get('create', [UserController::class, 'create'])->name('users.create');
-        Route::post('create', [UserController::class, 'store'])->name('users.store');
+        // ROUTE MECHANIC
+        Route::resource('mechanic', MechanicController::class);
         
-        Route::get('edit/{user}', [UserController::class, 'edit'])->name('users.edit');
-        Route::put('edit/{user}', [UserController::class, 'update'])->name('users.update');
-        Route::delete('delete/{user}', [UserController::class, 'destroy'])->name('users.delete');
+        // ROUTE GROUP USERS ( SPV / ADMIN )
+        Route::prefix('users')->group(function () {
+            
+            Route::get('/', [UserController::class, 'index'])->name('users.index');
+            Route::get('create', [UserController::class, 'create'])->name('users.create');
+            Route::post('create', [UserController::class, 'store'])->name('users.store');
+            
+            Route::get('edit/{user}', [UserController::class, 'edit'])->name('users.edit');
+            Route::put('edit/{user}', [UserController::class, 'update'])->name('users.update');
+            Route::delete('delete/{user}', [UserController::class, 'destroy'])->name('users.delete');
+        });
     });
 
 });
