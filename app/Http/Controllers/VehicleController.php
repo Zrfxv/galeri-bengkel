@@ -13,7 +13,9 @@ class VehicleController extends Controller
      */
     public function index()
     {
-        //
+        return view('spv.vehicles.viewVehicles',[
+            'vehicles' => Vehicle::all()
+        ]);
     }
 
     /**
@@ -21,7 +23,7 @@ class VehicleController extends Controller
      */
     public function create()
     {
-        //
+        return view('spv.vehicles.tambahVehicles');
     }
 
     /**
@@ -29,7 +31,8 @@ class VehicleController extends Controller
      */
     public function store(StorevehicleRequest $request)
     {
-        //
+        Vehicle::create($request->all());
+        return redirect()->to(route('vehicle.index'));
     }
 
     /**
@@ -45,22 +48,24 @@ class VehicleController extends Controller
      */
     public function edit(vehicle $vehicle)
     {
-        //
+        return view('spv.vehicles.ubahVehicles', compact('vehicle'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdatevehicleRequest $request, vehicle $vehicle)
+    public function update(UpdatevehicleRequest $request, Vehicle $vehicle)
     {
-        //
+        $vehicle->update($request->all());
+        return redirect()->to(route('vehicle.index'));
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(vehicle $vehicle)
+    public function destroy(Vehicle $vehicle)
     {
-        //
+        $vehicle->delete();
+        return redirect()->to(route('vehicle.index'));
     }
 }
