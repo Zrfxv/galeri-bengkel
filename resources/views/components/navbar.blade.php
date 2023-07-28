@@ -95,7 +95,7 @@
           ></button>
         </div>
         
-        <form action="{{ route('users.update', ['user' => auth()->user()->id]) }}" method="POST" onsubmit="showSuccessModal()">
+        <form action="{{ route('users.update', ['user' => auth()->user()->id]) }}" method="POST" onsubmit="showProfileConfirmationModal(event)">
             @csrf
             @method('PUT')
             <div class="modal-body">
@@ -147,24 +147,43 @@
               <button type="submit" class="btn btn-primary">Save</button>
             </div>
           </form>
+
+          <script>
+            function showProfileConfirmationModal(event) {
+                event.preventDefault(); // Prevent form submission
+        
+                // Show the profile confirmation modal
+                $('#profileConfirmationModal').modal('show');
+        
+                // profile a click event listener to the "profile" button inside the modal
+                $('#profileButton').on('click', function () {
+                    // Submit the form after the user confirms the deletion
+                    event.target.submit();
+        
+                    // Hide the profile confirmation modal
+                    $('#profileConfirmationModal').modal('hide');
+                });
+            }
+          </script>
       </div>
     </div>
   </div>
  <!-- / Navbar -->
 
- <!-- Success Notification Modal -->
-<div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel" aria-hidden="true">
+ <!-- Profile Confirmation Modal -->
+<div class="modal fade" id="profileConfirmationModal" tabindex="-1" role="dialog" aria-labelledby="profileConfirmationModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
       <div class="modal-content">
           <div class="modal-header">
-              <h5 class="modal-title" id="successModalLabel">Berhasil!</h5>
+              <h5 class="modal-title" id="profileConfirmationModalLabel">Konfirmasi</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-              Data Berhasil Disimpan!
+              Yakin ingin merubah data ini ?
           </div>
           <div class="modal-footer">
-              <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+              <button type="button" class="btn btn-danger" id="profileButton">Yes</button>
           </div>
       </div>
   </div>
@@ -184,6 +203,44 @@
           <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
               <button type="button" class="btn btn-danger" id="deleteButton">Delete</button>
+          </div>
+      </div>
+  </div>
+</div>
+
+<!-- Add Confirmation Modal -->
+<div class="modal fade" id="addConfirmationModal" tabindex="-1" role="dialog" aria-labelledby="addConfirmationModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="addConfirmationModalLabel">Konfirmasi</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              Ingin menyimpan data ?
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+              <button type="button" class="btn btn-primary" id="addButton">Yes</button>
+          </div>
+      </div>
+  </div>
+</div>
+
+<!-- Edit Confirmation Modal -->
+<div class="modal fade" id="editConfirmationModal" tabindex="-1" role="dialog" aria-labelledby="editConfirmationModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="editConfirmationModalLabel">Konfirmasi</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              Yakin ingin merubah data ini ?
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+              <button type="button" class="btn btn-primary" id="editButton">Yes</button>
           </div>
       </div>
   </div>
