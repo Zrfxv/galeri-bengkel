@@ -29,7 +29,7 @@
                 <div class="card">
                   <div class="table-responsive text-nowrap">
                     <div class="card-body">
-                      <a href="/tambah" class="btn btn-primary">New Service</a><p>
+                      <a href="{{ route('service.create') }}" class="btn btn-primary">New Service</a><p>
                       <div class="table-responsive">
                         <table id="example" class="display" style="min-width: 845px">
                           <thead>
@@ -40,9 +40,9 @@
                             </tr>
                           </thead>
                           <tbody class="table-border-bottom-0">
-                            #
+                            @foreach ($services as $service)
                             <tr>
-                              <td><i class="fab fa-angular fa-lg text-danger me-3"></i><strong>#</strong></td>
+                              <td><i class="fab fa-angular fa-lg text-danger me-3"></i><strong>{{ $service->vehicle->license_plate }}</strong></td>
                               <td>
                                 <a href="" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Detail">
                                   Detail
@@ -54,10 +54,10 @@
                                     <i class="bx bx-dots-vertical-rounded"></i>
                                   </button>
                                   <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="/ubah"
+                                    <a class="dropdown-item" href="{{ route('service.edit', $service) }}"
                                       ><i class="bx bx-edit-alt me-1"></i> Edit</a
                                     >
-                                    <form action="#" method="post">
+                                    <form action="{{ route('service.destroy', $service) }}" method="post">
                                       @csrf
                                       @method('DELETE')
                                       <button class="dropdown-item"
@@ -68,8 +68,7 @@
                                 </div>
                               </td>
                             </tr>
-
-                           #
+                            @endforeach
                            
                           </tbody>
                         </table>

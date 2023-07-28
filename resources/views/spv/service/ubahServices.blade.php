@@ -32,12 +32,13 @@
                       <h5 class="mb-0">Edit Data Services</h5>
                     </div>
                     <div class="card-body">
-                      <form action="#" method="POST">
-              
+                      <form action="{{ route('service.update', $service) }}" method="POST">
+                        @csrf
+                        @method('PUT')
                           <div class="row mb-3">
                             <label class="col-sm-2 col-form-label" for="basic-default-name">Nama Customer</label>
                             <div class="col-sm-10">
-                              <input type="text" class="form-control" name="name" id="basic-default-name" placeholder="Silahkan isi" />
+                              <input type="text" class="form-control" name="name" id="basic-default-name" value="{{ $service->user->name }}" />
                             </div>
                           </div>
                           <div class="row mb-3">
@@ -47,7 +48,7 @@
                                 type="text"
                                 class="form-control" name="phone"
                                 id="basic-default-company"
-                                placeholder="Silahkan isi"
+                                value="{{ $service->user->name }}"
                                 
                               />
                             </div>
@@ -70,8 +71,7 @@
                                 type="text"
                                 class="form-control" name="address"
                                 id="basic-default-company"
-                                placeholder="Silahkan isi"
-                                
+                                value="{{ $service->kilometers }}"
                               />
                             </div>
                           </div>
@@ -82,11 +82,10 @@
                               <textarea
                                 id="basic-default-message"
                                 class="form-control"
-                                placeholder="Silahkan isi"
                                 aria-label="Hi, Do you have a moment to talk Joe?"
                                 aria-describedby="basic-icon-default-message2"
                                 
-                              ></textarea>
+                              >{{ $service->problem }}</textarea>
                             </div>
                           </div>
                           <div class="row justify-content-end">
