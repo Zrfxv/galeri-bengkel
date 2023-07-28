@@ -28,14 +28,16 @@
                 @csrf
                 <div class="mb-3">
                   <label for="username" class="form-label">Username</label>
-                  <input type="text" class="form-control" id="username" name="username" placeholder="Masukan Username" autofocus />
+                  <input type="text" class="form-control" id="username" name="username" placeholder="Masukan Username" autofocus required oninvalid="this.setCustomValidity('Harap Username Diisi Dahulu')" 
+                  oninput="this.setCustomValidity('')" />
                 </div>
                 <div class="mb-3 form-password-toggle">
                   <div class="d-flex justify-content-between">
                     <label class="form-label" for="password">Password</label>
                   </div>
                   <div class="input-group input-group-merge">
-                    <input type="password" id="password" class="form-control"  name="password" placeholder="Masukan Password" aria-describedby="password"/>
+                    <input type="password" id="password" class="form-control"  name="password" placeholder="Masukan Password" aria-describedby="password" required oninvalid="this.setCustomValidity('Harap Password Diisi Dahulu')" 
+                    oninput="this.setCustomValidity('')" />
                   </div>
                 </div><br>
                 <div class="mb-3">
