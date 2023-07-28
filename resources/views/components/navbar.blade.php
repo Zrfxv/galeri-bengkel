@@ -308,3 +308,62 @@
       </div>
   </div>
 </div>
+
+<!-- Modal CUSTOMERS -->
+
+<!-- Delete Confirmation Modal -->
+<div class="modal fade" id="deleteCustomerConfirmationModal" tabindex="-1" role="dialog" aria-labelledby="deleteCustomerConfirmationModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteCustomerConfirmationModalLabel">Konfirmasi</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Yakin ingin menghapus data ini ?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-danger" id="deleteCustomerButton">Delete</button>
+            </div>
+        </div>
+    </div>
+  </div>
+  
+  <!-- Add Confirmation Modal -->
+  <div class="modal fade" id="addCustomerConfirmationModal" tabindex="-1" role="dialog" aria-labelledby="addCustomerConfirmationModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addCustomerConfirmationModalLabel">Konfirmasi</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Ingin menyimpan data ?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" id="addCustomerButton">Yes</button>
+            </div>
+        </div>
+    </div>
+  </div>
+  
+  <!-- Edit Confirmation Modal -->
+  <div class="modal fade" id="editCustomerConfirmationModal" tabindex="-1" role="dialog" aria-labelledby="editCustomerConfirmationModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editCustomerConfirmationModalLabel">Konfirmasi</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Yakin ingin merubah data ini ?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" id="editCustomerButton">Yes</button>
+            </div>
+        </div>
+    </div>
+  </div>
