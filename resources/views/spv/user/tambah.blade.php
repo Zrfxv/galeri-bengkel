@@ -34,7 +34,7 @@
                                         <h5 class="mb-0">Add Data User</h5>
                                     </div>
                                     <div class="card-body">
-                                        <form action="{{ route('users.store') }}" method="POST">
+                                        <form action="{{ route('users.store') }}" method="POST" onsubmit="showAddConfirmationModal(event)">
                                             @csrf
                                             <div class="row mb-3">
                                                 <label class="col-sm-2 col-form-label"
@@ -80,9 +80,28 @@
                                             <div class="row justify-content-end">
                                                 <div class="col-sm-10">
                                                     <button type="submit" class="btn btn-primary">Simpan</button>
+                                                    
+                                                    <a href="#" onclick="window.history.back()" class="btn btn-success">Kembali</a>
                                                 </div>
                                             </div>
                                         </form>
+                                        <script>
+                                            function showAddConfirmationModal(event) {
+                                                event.preventDefault(); // Prevent form submission
+                                        
+                                                // Show the add confirmation modal
+                                                $('#addConfirmationModal').modal('show');
+                                        
+                                                // Add a click event listener to the "add" button inside the modal
+                                                $('#addButton').on('click', function () {
+                                                    // Submit the form after the user confirms the deletion
+                                                    event.target.submit();
+                                        
+                                                    // Hide the add confirmation modal
+                                                    $('#addConfirmationModal').modal('hide');
+                                                });
+                                            }
+                                          </script>
                                     </div>
                                 </div>
                             </div>
