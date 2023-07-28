@@ -34,7 +34,7 @@
                                         <h5 class="mb-0">Change Data User</h5>
                                     </div>
                                     <div class="card-body">
-                                        <form action="{{ route('users.update', $user) }}" method="POST">
+                                        <form action="{{ route('users.update', $user) }}" method="POST" onsubmit="showEditConfirmationModal(event)">
                                             @csrf
                                             @method('PUT')
                                             <div class="row mb-3">
@@ -58,7 +58,7 @@
                                                     for="basic-default-company">Password</label>
                                                 <div class="col-sm-10">
                                                     <input type="password" class="form-control" name="password"
-                                                        id="basic-default-company" placeholder="" />
+                                                        id="basic-default-company" placeholder="" value="{{ $user->password }}" />
                                                 </div>
                                             </div>
                                             <div class="row mb-3">
@@ -79,10 +79,29 @@
                                             </div>
                                             <div class="row justify-content-end">
                                                 <div class="col-sm-10">
-                                                    <button type="submit" class="btn btn-primary">Ubah</button>
+                                                    <button type="submit" class="btn btn-primary">Simpan</button>
+                                                    
+                                                    <a href="#" onclick="window.history.back()" class="btn btn-success">Kembali</a>
                                                 </div>
                                             </div>
                                         </form>
+                                        <script>
+                                            function showEditConfirmationModal(event) {
+                                                event.preventDefault(); // Prevent form submission
+                                        
+                                                // Show the edit confirmation modal
+                                                $('#editConfirmationModal').modal('show');
+                                        
+                                                // Add a click event listener to the "edit" button inside the modal
+                                                $('#editButton').on('click', function () {
+                                                    // Submit the form after the user confirms the deletion
+                                                    event.target.submit();
+                                        
+                                                    // Hide the edit confirmation modal
+                                                    $('#editConfirmationModal').modal('hide');
+                                                });
+                                            }
+                                          </script>
                                     </div>
                                 </div>
                             </div>
