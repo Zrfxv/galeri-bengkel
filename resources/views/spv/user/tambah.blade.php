@@ -41,7 +41,8 @@
                                                     for="basic-default-name">Nama</label>
                                                 <div class="col-sm-10">
                                                     <input type="text" class="form-control" name="name"
-                                                        id="basic-default-name" placeholder="Silahkan isi" />
+                                                        id="basic-default-name" placeholder="Silahkan isi" required oninvalid="this.setCustomValidity('Harap Diisi Dahulu')" 
+                                                        oninput="this.setCustomValidity('')" />
                                                 </div>
                                             </div>
                                             <div class="row mb-3">
@@ -49,7 +50,8 @@
                                                     for="basic-default-company">Username</label>
                                                 <div class="col-sm-10">
                                                     <input type="text" name="username" class="form-control"
-                                                        id="basic-default-company" placeholder="Silahkan isi" />
+                                                        id="basic-default-company" placeholder="Silahkan isi" required oninvalid="this.setCustomValidity('Harap Diisi Dahulu')" 
+                                                        oninput="this.setCustomValidity('')" />
                                                 </div>
                                             </div>
                                             <div class="row mb-3">
@@ -57,7 +59,8 @@
                                                     for="basic-default-company">Password</label>
                                                 <div class="col-sm-10">
                                                     <input type="password" name="password" class="form-control"
-                                                        id="basic-default-company" placeholder="Silahkan isi" />
+                                                        id="basic-default-company" placeholder="Silahkan isi" required oninvalid="this.setCustomValidity('Harap Diisi Dahulu')" 
+                                                        oninput="this.setCustomValidity('')" />
                                                 </div>
                                             </div>
                                             <div class="row mb-3">
