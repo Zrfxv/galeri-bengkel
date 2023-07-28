@@ -46,7 +46,7 @@
                           <tbody class="table-border-bottom-0">
                             @foreach ($vehicles as $vehicle)
                             <tr>
-                              <td><i class="fab fa-angular fa-lg text-danger me-3"></i><strong>{{ $vehicle->customer_id }}</strong></td>
+                              <td><i class="fab fa-angular fa-lg text-danger me-3"></i><strong>{{ $vehicle->customer->name }}</strong></td>
                               <td>{{ $vehicle->license_plate }}</td>
                               <td>{{ $vehicle->brand }}</td>
                               <td>{{ $vehicle->model }}</td>
