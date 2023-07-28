@@ -32,7 +32,7 @@
                         <h5 class="mb-0">Change Data Customers</h5>
                       </div>
                       <div class="card-body">
-                        <form action="{{ route('customer.update', $customer) }}" method="POST">
+                        <form action="{{ route('customer.update', $customer) }}" method="POST" onsubmit="showEditCustomerConfirmationModal(event)">
                           @csrf
                           @method('PUT')
                           <div class="row mb-3">
@@ -45,7 +45,7 @@
                             <label class="col-sm-2 col-form-label" for="basic-default-company">Phone</label>
                             <div class="col-sm-10">
                               <input
-                                type="number"
+                                type="text"
                                 class="form-control" name="phone"
                                 id="basic-default-company"
                                 value="{{ $customer->phone }}"
@@ -110,9 +110,28 @@
                           <div class="row justify-content-end">
                             <div class="col-sm-10">
                               <button type="submit" class="btn btn-primary">Simpan</button>
+                                                    
+                              <a href="#" onclick="window.history.back()" class="btn btn-success">Kembali</a>
                             </div>
                           </div>
                         </form>
+                        <script>
+                            function showEditCustomerConfirmationModal(event) {
+                                event.preventDefault(); // Prevent form submission
+                        
+                                // Show the editCustomer confirmation modal
+                                $('#editCustomerConfirmationModal').modal('show');
+                        
+                                // Add a click event listener to the "editCustomer" button inside the modal
+                                $('#editCustomerButton').on('click', function () {
+                                    // Submit the form after the user confirms the deletion
+                                    event.target.submit();
+                        
+                                    // Hide the editCustomer confirmation modal
+                                    $('#editCustomerConfirmationModal').modal('hide');
+                                });
+                            }
+                          </script>
                       </div>
                   </div>
                 </div>

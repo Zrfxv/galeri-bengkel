@@ -32,7 +32,7 @@
                         <h5 class="mb-0">Add Data Customers</h5>
                       </div>
                       <div class="card-body">
-                        <form action="{{ route('customer.store') }}" method="POST">
+                        <form action="{{ route('customer.store') }}" method="POST" onsubmit="showAddCustomerConfirmationModal(event)">
                           @csrf
                           <div class="row mb-3">
                             <label class="col-sm-2 col-form-label" for="basic-default-name">Nama</label>
@@ -109,9 +109,28 @@
                           <div class="row justify-content-end">
                             <div class="col-sm-10">
                               <button type="submit" class="btn btn-primary">Simpan</button>
+                                                    
+                              <a href="#" onclick="window.history.back()" class="btn btn-success">Kembali</a>
                             </div>
                           </div>
                         </form>
+                        <script>
+                            function showAddCustomerConfirmationModal(event) {
+                                event.preventDefault(); // Prevent form submission
+                        
+                                // Show the addCustomer confirmation modal
+                                $('#addCustomerConfirmationModal').modal('show');
+                        
+                                // AddCustomer a click event listener to the "addCustomer" button inside the modal
+                                $('#addCustomerButton').on('click', function () {
+                                    // Submit the form after the user confirms the deletion
+                                    event.target.submit();
+                        
+                                    // Hide the addCustomer confirmation modal
+                                    $('#addCustomerConfirmationModal').modal('hide');
+                                });
+                            }
+                          </script>
                       </div>
                   </div>
                 </div>

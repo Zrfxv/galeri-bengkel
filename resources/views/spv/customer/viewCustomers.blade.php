@@ -61,13 +61,30 @@
                                     <a class="dropdown-item" href="{{ route('customer.edit', $customer) }}"
                                       ><i class="bx bx-edit-alt me-1"></i> Edit</a
                                     >
-                                    <form action="{{ route('customer.destroy', $customer) }}" method="post">
+                                    <form action="{{ route('customer.destroy', $customer) }}" method="post" onsubmit="showDeleteCostumerConfirmationModal(event)">
                                       @csrf
                                       @method('DELETE')
                                       <button class="dropdown-item"
                                         ><i class="bx bx-trash me-1"></i> Delete</button>
                                       
                                     </form>
+                                    <script>
+                                      function showDeleteCostumerConfirmationModal(event) {
+                                          event.preventDefault(); // Prevent form submission
+                                  
+                                          // Show the deleteCostumer confirmation modal
+                                          $('#deleteCostumerConfirmationModal').modal('show');
+                                  
+                                          // Add a click event listener to the "DeleteCostumer" button inside the modal
+                                          $('#deleteCostumerButton').on('click', function () {
+                                              // Submit the form after the user confirms the deletion
+                                              event.target.submit();
+                                  
+                                              // Hide the deleteCostumer confirmation modal
+                                              $('#deleteCostumerConfirmationModal').modal('hide');
+                                          });
+                                      }
+                                    </script>
                                   </div>
                                 </div>
                               </td>
