@@ -15,7 +15,7 @@
     <li class="menu-item">
       <!-- Dashboard -->
       <li class="menu-item">
-        <a href="/service" class="menu-link">
+        <a href="{{ route('service.index') }}" class="menu-link">
           <i class="menu-icon tf-icons bx bxs-wrench"></i>
           <div data-i18n="Analytics">Services</div>
         </a>
@@ -27,7 +27,7 @@
         </a>
       </li>
       <li class="menu-item">
-        <a href="/vehicles" class="menu-link">
+        <a href="{{ route('vehicle.index') }}" class="menu-link">
           <i class="menu-icon tf-icons bx bxs-car"></i>
           <div data-i18n="Tables">Vehicles</div>
         </a>
