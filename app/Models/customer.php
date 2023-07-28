@@ -11,7 +11,7 @@ class Customer extends Model
 
     protected $guarded = ['id'];
 
-    protected $with = ['vehicle'];
+    protected $with = ['vehicles'];
 
     public function vehicles()
     {
