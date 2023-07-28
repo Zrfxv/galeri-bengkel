@@ -46,16 +46,40 @@
                 <li>
                     <div class="dropdown-divider"></div>
                 </li>
+                  
                 <li>
-                    <form action="{{ route('auth.logout') }}" method="post">
-                    @csrf
-                        {{-- <span class="align-middle">Log Out</span> --}}
-                        <button class="dropdown-item"><i class="bx bx-power-off me-2"></i> Logout</button>
-                    </form>
+                  <form action="{{ route('auth.logout') }}" method="post">
+                      @csrf
+                      <button type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#logoutModal">
+                          <i class="bx bx-power-off me-2"></i> Logout
+                      </button>
+                  </form>
                 </li>
             </ul>
         </div>
     </nav>
+
+    <!-- Modal logout -->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Konfirmasi Logout</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  Apakah Anda yakin ingin keluar?
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                  <form action="{{ route('auth.logout') }}" method="post">
+                      @csrf
+                      <button type="submit" class="btn btn-danger">Logout</button>
+                  </form>
+              </div>
+          </div>
+      </div>
+    </div>
 
 <!-- Extra Large Modal -->
 <div class="modal fade" id="exLargeModal" tabindex="-1" aria-hidden="true">
