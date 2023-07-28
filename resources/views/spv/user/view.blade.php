@@ -55,13 +55,31 @@
                                     <a class="dropdown-item" href="{{ route('users.edit', $user) }}"
                                       ><i class="bx bx-edit-alt me-1"></i> Edit</a
                                     >
-                                    <form action="{{ route('users.delete', $user) }}" method="post">
+                                    <form action="{{ route('users.delete', $user) }}" method="post" onsubmit="showDeleteConfirmationModal(event)">
                                       @csrf
                                       @method('DELETE')
                                       <button class="dropdown-item"
                                         ><i class="bx bx-trash me-1"></i> Delete</button>
                                       
                                     </form>
+                                    <script>
+                                      function showDeleteConfirmationModal(event) {
+                                          event.preventDefault(); // Prevent form submission
+                                  
+                                          // Show the delete confirmation modal
+                                          $('#deleteConfirmationModal').modal('show');
+                                  
+                                          // Add a click event listener to the "Delete" button inside the modal
+                                          $('#deleteButton').on('click', function () {
+                                              // Submit the form after the user confirms the deletion
+                                              event.target.submit();
+                                  
+                                              // Hide the delete confirmation modal
+                                              $('#deleteConfirmationModal').modal('hide');
+                                          });
+                                      }
+                                    </script>
+                                  
                                   </div>
                                 </div>
                               </td>
