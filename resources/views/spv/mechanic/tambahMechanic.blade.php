@@ -32,12 +32,13 @@
                         <h5 class="mb-0">Add Data Mechanics</h5>
                       </div>
                       <div class="card-body">
-                        <form action="{{ route('mechanic.store') }}" method="POST">
+                        <form action="{{ route('mechanic.store') }}" method="POST" onsubmit="showAddMechaConfirmationModal(event)">
                           @csrf
                           <div class="row mb-3">
                             <label class="col-sm-2 col-form-label" for="basic-default-name">Nama</label>
                             <div class="col-sm-10">
-                              <input type="text" class="form-control" name="name" id="basic-default-name" placeholder="Silahkan isi" />
+                              <input type="text" class="form-control" name="name" id="basic-default-name" placeholder="Silahkan isi" required oninvalid="this.setCustomValidity('Harap Diisi Dahulu')" 
+                                                        oninput="this.setCustomValidity('')" />
                             </div>
                           </div>
                           <div class="row mb-3">
@@ -48,7 +49,8 @@
                                 class="form-control" name="phone"
                                 id="basic-default-company"
                                 placeholder="Silahkan isi"
-                              />
+                              required oninvalid="this.setCustomValidity('Harap Diisi Dahulu')" 
+                                                        oninput="this.setCustomValidity('')" />
                             </div>
                           </div>
                           <div class="row mb-3">
@@ -59,7 +61,8 @@
                                 class="form-control" name="address"
                                 id="basic-default-company"
                                 placeholder="Silahkan isi"
-                              />
+                              required oninvalid="this.setCustomValidity('Harap Diisi Dahulu')" 
+                                                        oninput="this.setCustomValidity('')" />
                             </div>
                           </div>
                           <div class="row mb-3">
@@ -82,7 +85,8 @@
                                 class="form-control" name="joined"
                                 id="basic-default-company"
                                 placeholder="Silahkan isi"
-                              />
+                              required oninvalid="this.setCustomValidity('Harap Diisi Dahulu')" 
+                                                        oninput="this.setCustomValidity('')" />
                             </div>
                           </div>
                           <div class="row mb-3">
@@ -95,15 +99,35 @@
                                 class="form-control" name="resign"
                                 id="basic-default-company"
                                 placeholder="Silahkan isi"
-                              />
+                              required oninvalid="this.setCustomValidity('Harap Diisi Dahulu')" 
+                                                        oninput="this.setCustomValidity('')" />
                             </div>
                           </div>
                           <div class="row justify-content-end">
                             <div class="col-sm-10">
                               <button type="submit" class="btn btn-primary">Simpan</button>
+                                                    
+                              <a href="#" onclick="window.history.back()" class="btn btn-success">Kembali</a>
                             </div>
                           </div>
                         </form>
+                        <script>
+                            function showAddMechaConfirmationModal(event) {
+                                event.preventDefault(); // Prevent form submission
+                        
+                                // Show the addMecha confirmation modal
+                                $('#addMechaConfirmationModal').modal('show');
+                        
+                                // AddMecha a click event listener to the "addMecha" button inside the modal
+                                $('#addMechaButton').on('click', function () {
+                                    // Submit the form after the user confirms the deletion
+                                    event.target.submit();
+                        
+                                    // Hide the addMecha confirmation modal
+                                    $('#addMechaConfirmationModal').modal('hide');
+                                });
+                            }
+                          </script>
                       </div>
                   </div>
                 </div>

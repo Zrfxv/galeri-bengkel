@@ -32,7 +32,7 @@
                         <h5 class="mb-0">Add Data Mechanics</h5>
                       </div>
                       <div class="card-body">
-                        <form action="{{ route('mechanic.update', $mechanic) }}" method="post">
+                        <form action="{{ route('mechanic.update', $mechanic) }}" method="post" onsubmit="showEditMechaConfirmationModal(event)">
                           @csrf
                           @method('PUT')
                           <div class="row mb-3">
@@ -45,7 +45,7 @@
                             <label class="col-sm-2 col-form-label" for="basic-default-company">Phone</label>
                             <div class="col-sm-10">
                               <input
-                                type="number"
+                                type="text"
                                 class="form-control" value="{{ $mechanic->phone }}" name="phone"
                                 id="basic-default-company"
                                 
@@ -102,9 +102,28 @@
                           <div class="row justify-content-end">
                             <div class="col-sm-10">
                               <button type="submit" class="btn btn-primary">Simpan</button>
+                                                    
+                              <a href="#" onclick="window.history.back()" class="btn btn-success">Kembali</a>
                             </div>
                           </div>
                         </form>
+                        <script>
+                            function showEditMechaConfirmationModal(event) {
+                                event.preventDefault(); // Prevent form submission
+                        
+                                // Show the editMecha confirmation modal
+                                $('#editMechaConfirmationModal').modal('show');
+                        
+                                // Add a click event listener to the "editMecha" button inside the modal
+                                $('#editMechaButton').on('click', function () {
+                                    // Submit the form after the user confirms the deletion
+                                    event.target.submit();
+                        
+                                    // Hide the editMecha confirmation modal
+                                    $('#editMechaConfirmationModal').modal('hide');
+                                });
+                            }
+                          </script>
                       </div>
                   </div>
                 </div>
