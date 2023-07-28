@@ -95,14 +95,14 @@
           ></button>
         </div>
         
-        <form action="#" method="POST">
+        <form action="{{ route('users.update', ['user' => auth()->user()->id]) }}" method="POST">
             @csrf
             @method('PUT')
-        <div class="modal-body">
+            <div class="modal-body">
               <div class="row mb-3">
                 <label class="col-sm-2 col-form-label" for="basic-default-name">Nama</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" name="name" id="basic-default-name" value="#"/>
+                  <input type="text" class="form-control" name="name" id="basic-default-name" value="{{ auth()->user()->name }}"/>
                 </div>
               </div>
               <div class="row mb-3">
@@ -112,7 +112,7 @@
                     type="text"
                     class="form-control" name="username"
                     id="basic-default-company"
-                    value="#"
+                    value="{{ auth()->user()->username }}"
                   />
                 </div>
               </div>
@@ -123,6 +123,7 @@
                     type="password"
                     class="form-control" name="password"
                     id="basic-default-company"
+                    value="{{ auth()->user()->password }}"
                     placeholder=""
                   />
                 </div>
@@ -130,23 +131,22 @@
               <div class="row mb-3">
                 <label class="col-sm-2 col-form-label" for="basic-default-company">Role</label>
                 <div class="col-sm-10">
-
                   <select class="form-select" name="role" id="exampleFormControlSelect1" aria-label="Default select example">
                     <option>Silahkan Pilih </option>
-                    <option value="1" #>SPV</option>
-                    <option value="2" #>Admin</option>
+                    <option value="0" {{ (auth()->user()->role == 0) ? 'selected' : '' }}>SPV</option>
+                    <option value="1" {{ (auth()->user()->role == 1) ? 'selected' : '' }}>Admin</option>
                   </select>
                 </div>
               </div>
           
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
-            Close
-          </button>
-          <button type="button" class="btn btn-primary">Save</button>
-        </div>
-        </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                Close
+              </button>
+              <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+          </form>
       </div>
     </div>
   </div>
