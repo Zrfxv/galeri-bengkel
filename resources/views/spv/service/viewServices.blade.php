@@ -67,13 +67,29 @@
                                                                     class="fab fa-angular fa-lg text-danger me-3"></i><strong>{{ $service->created_at->format('d/m/Y') }}</strong>
                                                             </td>
                                                             <td>
-                                                                <form action="{{ route('service.destroy', $service) }}"
-                                                                    method="post">
+                                                                <form action="{{ route('service.destroy', $service) }}" method="post" onsubmit="showDeleteServiceConfirmationModal(event)">
                                                                     @csrf
                                                                     @method('DELETE')
-                                                                    <button class="dropdown-item"><i
-                                                                            class="bx bx-trash "></i></button>
-                                                                </form>
+                                                                    <button class="dropdown-item"><i class="bx bx-trash me-1"></i></button>
+                                                                    
+                                                                  </form>
+                                                                    <script>deleteServiceConfirmationModal
+                                                                      function showDeleteServiceConfirmationModal(event) {
+                                                                          event.preventDefault(); // Prevent form submission
+                                                                  
+                                                                          // Show the deleteService confirmation modal
+                                                                          $('#deleteServiceConfirmationModal').modal('show');
+                                                                  
+                                                                          // Add a click event listener to the "DeleteService" button inside the modal
+                                                                          $('#deleteServiceButton').on('click', function () {
+                                                                              // Submit the form after the user confirms the deletion
+                                                                              event.target.submit();
+                                                                  
+                                                                              // Hide the deleteService confirmation modal
+                                                                              $('#deleteServiceConfirmationModal').modal('hide');
+                                                                          });
+                                                                      }
+                                                                    </script>
 
                                                             </td>
 
