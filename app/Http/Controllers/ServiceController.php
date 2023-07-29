@@ -48,7 +48,7 @@ class ServiceController extends Controller
      */
     public function show(service $service)
     {
-        //
+        return view('spv.service.detail', compact('service'));
     }
 
     /**
