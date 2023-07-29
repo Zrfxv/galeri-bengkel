@@ -46,7 +46,9 @@ class CustomerController extends Controller
      */
     public function show(customer $customer)
     {
-        //
+        return view('spv.customer.detailCustomers', [
+            'customer' => $customer
+        ]);
     }
 
     /**
