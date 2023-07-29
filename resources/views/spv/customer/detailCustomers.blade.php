@@ -28,6 +28,26 @@
                 <h5 class="py-3 my-4"><span class="text-muted fw-light">Customer</span> <b style="color: #696cff;">{{ $customer->name }}</b> ( <b style="color: #02bd2b;">{{ $customer->phone }}</b> )</h5>
 
 
+                                <!--/ Total Revenue -->
+                                <div class="col-12 col-md-8 col-lg-4 order-3 order-md-2">
+                                  <div class="row">
+                                    <div class="col-6 mb-4">
+                                      <div class="card">
+                                        <div class="card-body">
+                                          <div class="card-title d-flex align-items-start justify-content-between">
+                                            <div class="avatar flex-shrink-0">
+                                              <img src="../assets/img/icons/unicons/cc-primary.png" alt="Credit Card" class="rounded" />
+                                            </div>
+                                          </div>
+                                          <span class="fw-semibold d-block mb-1">Total Service</span>
+                                          <h3 class="card-title mb-2">{{ count($customer->vehicles->flatMap->services) }}</h3>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+
+
                 <div class="row">
                   <div class="col-xl-12">
                     <div class="nav-align-top mb-4">
@@ -46,9 +66,20 @@
                             data-bs-toggle="tab"
                             data-bs-target="#navs-top-profile"
                             aria-controls="navs-top-profile"
-                            aria-selected="false"
-                          >
+                            aria-selected="false">
                             Data Kendaraan
+                          </button>
+                        </li>
+                        <li class="nav-item">
+                          <button
+                            type="button"
+                            class="nav-link"
+                            role="tab"
+                            data-bs-toggle="tab"
+                            data-bs-target="#navs-top-messages"
+                            aria-controls="navs-top-messages"
+                            aria-selected="false">
+                            Riwayat Service
                           </button>
                         </li>
                       </ul>
@@ -84,8 +115,8 @@
                           </table>
                         </div>
                         <div class="tab-pane fade" id="navs-top-profile" role="tabpanel">
-                          
-                          <table id="example" class="display" style="min-width: 845px">
+                          <div class="table-responsive">
+                            <table class="table table-striped">
                             <thead>
                               <tr>
                                 <th>Nama Customer</th>
@@ -118,8 +149,7 @@
                                       <form action="{{ route('vehicle.destroy', $vehicle) }}" method="post" onsubmit="showDeleteVehicleConfirmationModal(event)">
                                         @csrf
                                         @method('DELETE')
-                                        <button class="dropdown-item"
-                                          ><i class="bx bx-trash me-1"></i> Delete</button>
+                                        <button class="dropdown-item" ><i class="bx bx-trash me-1"></i> Delete</button>
                                         
                                       </form>
                                       <script>
@@ -147,6 +177,74 @@
                             
                             </tbody>
                           </table>
+                          </div>
+                        </div>
+                        <div class="tab-pane fade" id="navs-top-messages" role="tabpanel">
+                          <div class="table-responsive">
+                            <table id="example" class="display" style="min-width: 845px">
+                              <thead>
+                                <tr>
+                                  <th>Date</th>
+                                  <th>License Plate</th>
+                                  <th>Service Type</th>
+                                  <th>Kilometers</th>
+                                  <th>Problem</th>
+                                  <th>Action</th>
+                                </tr>
+                              </thead>
+                              <tbody class="table-border-bottom-0">
+                                @foreach($customer->vehicles as $vehicle)
+                                @foreach($vehicle->services as $service)
+                                <tr>
+                                  <td><a href="{{ route('service.show', $service) }}">
+                                    <i class="fab fa-angular fa-lg text-danger me-3"></i><strong>{{ $service->created_at->format('d/m/Y') }}</strong>
+                                    </a>
+                                  </td>
+                                  <td>{{ $vehicle->license_plate }}</td>
+                                  <td>{{ $service->type }}</td>
+                                  <td>{{ $service->kilometers }}</td>
+                                  <td>{{ $service->problem }}</td>
+                                  <td>
+                                    <div class="dropdown">
+                                      <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                        <i class="bx bx-dots-vertical-rounded "></i>
+                                      </button>
+                                      <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="{{ route('service.edit', $service) }}"
+                                          ><i class="bx bx-edit-alt me-1"></i> Edit</a>
+                                        <form action="{{ route('service.destroy', $service) }}" method="post" onsubmit="showDeleteServiceConfirmationModal(event)">
+                                          @csrf
+                                          @method('DELETE')
+                                          <button class="dropdown-item"
+                                            ><i class="bx bx-trash me-1"></i> Delete</button>
+                                          
+                                        </form>
+                                          <script>deleteServiceConfirmationModal
+                                            function showDeleteServiceConfirmationModal(event) {
+                                                event.preventDefault(); // Prevent form submission
+                                        
+                                                // Show the deleteService confirmation modal
+                                                $('#deleteServiceConfirmationModal').modal('show');
+                                        
+                                                // Add a click event listener to the "DeleteService" button inside the modal
+                                                $('#deleteServiceButton').on('click', function () {
+                                                    // Submit the form after the user confirms the deletion
+                                                    event.target.submit();
+                                        
+                                                    // Hide the deleteService confirmation modal
+                                                    $('#deleteServiceConfirmationModal').modal('hide');
+                                                });
+                                            }
+                                          </script>
+                                      </div>
+                                    </div>
+                                  </td>
+                                </tr>
+                                    @endforeach
+                                  @endforeach
+                              </tbody>
+                            </table>
+                          </div>
                         </div>
                       </div>
                     </div>
