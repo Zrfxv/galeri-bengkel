@@ -46,7 +46,10 @@
                           <tbody class="table-border-bottom-0">
                             @foreach ($customers as $customer)
                             <tr>
-                              <td><i class="fab fa-angular fa-lg text-danger me-3"></i><strong>{{ $customer->name }}</strong></td>
+                              <td><a href="{{ route('customer.show', $customer) }}">
+                                <i class="fab fa-angular fa-lg text-danger me-3"></i><strong>{{ $customer->name }}</strong>
+                                </a>
+                              </td>
                               <td>{{ $customer->phone }}</td>
                               <td>  {{ $customer->email }}</td>
                               <td>  {{ $customer->birth }}</td>
