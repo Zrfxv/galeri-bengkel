@@ -38,29 +38,19 @@
                           <div class="row mb-3">
                             <label class="col-sm-2 col-form-label" for="basic-default-name">Nama Customer</label>
                             <div class="col-sm-10">
-                              <input type="text" class="form-control" name="name" id="basic-default-name" value="{{ $service->user->name }}" />
-                            </div>
-                          </div>
-                          <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label" for="basic-default-company">Nama User</label>
-                            <div class="col-sm-10">
-                              <input
-                                type="text"
-                                class="form-control" name="phone"
-                                id="basic-default-company"
-                                value="{{ $service->user->name }}"
-                                
-                              />
+                              <input type="text" class="form-control" name="name" id="basic-default-name" value="{{ $service->user->name }}" readonly/>
+                              <input type="hidden" class="form-control" name="name" id="basic-default-name" value="{{ $service->vehicle_id }}" readonly/>
+                              <input type="hidden" class="form-control" name="name" id="basic-default-name" value="{{ $service->user_id }}" readonly/>
                             </div>
                           </div>
                           <div class="row mb-3">
                             <label class="col-sm-2 col-form-label" for="basic-default-company">Damage Type</label>
                             <div class="col-sm-10">
 
-                              <select class="form-select" name="level" id="exampleFormControlSelect1" aria-label="Default select example" >
-                                <option selected>Silahkan Pilih</option>
-                                <option value="ringan">Ringan</option>
-                                <option value="berat">Berat</option>
+                              <select class="form-select" name="type" id="exampleFormControlSelect1" aria-label="Default select example" >
+                                <option value="" selected disabled>Silahkan Pilih</option>
+                                <option value="ringan" @if($service->type === 'ringan') selected @endif>Ringan</option>
+                                <option value="berat"@if($service->type === 'berat') selected @endif>Berat</option>
                               </select>
                             </div>
                           </div>
