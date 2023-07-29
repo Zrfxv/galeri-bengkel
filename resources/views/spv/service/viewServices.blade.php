@@ -48,7 +48,7 @@
                                                     @foreach ($services as $service)
                                                         <tr>
                                                             <td>
-                                                                <a href="{{ route('service.edit', $service) }}">
+                                                                <a href="{{ route('service.show', $service) }}">
                                                                     <i
                                                                         class="fab fa-angular fa-lg text-danger me-3"></i><strong>{{ $service->created_at->format('y') . '/' . $service->created_at->format('m') . '/S' . str_pad($service->id, 3, '0', STR_PAD_LEFT) }}</strong>
                                                             </td>
