@@ -57,8 +57,8 @@ class VehicleController extends Controller
     public function update(UpdatevehicleRequest $request, vehicle $vehicle)
     {
         $vehicle->update($request->all());
-        return redirect()->to(route('vehicle.index'));
-    }
+        return redirect()->route('customer.show', ['customer' => $vehicle->customer_id]);
+    }    
 
     /**
      * Remove the specified resource from storage.
@@ -66,6 +66,6 @@ class VehicleController extends Controller
     public function destroy(Vehicle $vehicle)
     {
         $vehicle->delete();
-        return redirect()->to(route('vehicle.index'));
+        return redirect()->route('customer.show', ['customer' => $vehicle->customer_id]);
     }
 }
