@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StorecustomerRequest;
 use App\Http\Requests\UpdatecustomerRequest;
 use App\Models\customer;
-use App\Models\User;
+use App\Models\User;;
+use App\Models\service;
 
 class CustomerController extends Controller
 {
@@ -15,7 +16,7 @@ class CustomerController extends Controller
     public function index()
     {
         return view('spv.customer.viewCustomers', [
-            'customers' => customer::all()
+            'customers' => customer::all(),
         ]);
     }
     
