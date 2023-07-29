@@ -86,15 +86,14 @@
                           </div>
                         </div>
                         <div class="row mb-3">
-                          <label class="col-sm-2 col-form-label" for="basic-default-company">Type</label>
-                          <div class="col-sm-10">
-
-                            <select class="form-select" name="type" id="exampleFormControlSelect1" aria-label="Default select example">
-                              <option selected>Silahkan Pilih</option>
-                              <option value="car">Car</option>
-                              <option value="moto">Moto</option>
-                            </select>
-                          </div>
+                            <label class="col-sm-2 col-form-label" for="basic-default-company">Type</label>
+                            <div class="col-sm-10">
+                                <select class="form-select" name="type" id="exampleFormControlSelect1" aria-label="Default select example">
+                                    <option value="" selected disabled>Silahkan Pilih</option>
+                                    <option value="car" @if($vehicle->type === 'car') selected @endif>Car</option>
+                                    <option value="moto" @if($vehicle->type === 'moto') selected @endif>Moto</option>
+                                </select>
+                            </div>
                         </div>
                         <div class="row justify-content-end">
                           <div class="col-sm-10">
