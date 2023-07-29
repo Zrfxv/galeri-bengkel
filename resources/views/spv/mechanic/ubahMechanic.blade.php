@@ -69,9 +69,9 @@
 
                               <select class="form-select"  name="level" id="exampleFormControlSelect1" aria-label="Default select example">
                                 <option selected>Silahkan Pilih</option>
-                                <option value="m">Mechanic</option>
-                                <option value="pm">Pro Mechanic</option>
-                                <option value="mm">Master Mechanic</option>
+                                <option value="m"  @if($mechanic->level === 'm') selected @endif>Mechanic</option>
+                                <option value="pm" @if($mechanic->level === 'pm') selected @endif>Pro Mechanic</option>
+                                <option value="mm" @if($mechanic->level === 'mm') selected @endif>Master Mechanic</option>
                               </select>
                             </div>
                           </div>
