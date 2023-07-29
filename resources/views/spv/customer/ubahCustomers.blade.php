@@ -91,8 +91,8 @@
 
                               <select class="form-select" name="gender" id="exampleFormControlSelect1" aria-label="Default select example">
                                 <option selected>Silahkan Pilih</option>
-                                <option value="1">Laki-Laki</option>
-                                <option value="2">Perempuan</option>
+                                <option value="l" @if($customer->gender === 'l') selected @endif>Laki-Laki</option>
+                                <option value="p" @if($customer->gender === 'p') selected @endif>Perempuan</option>
                               </select>
                             </div>
                           </div>
