@@ -23,7 +23,7 @@
               <!-- Content -->
 
               <div class="container-xxl flex-grow-1 container-p-y">
-                <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Data /Vehicles /</span>Edit Data</h4>
+                <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Data /Customers /</span>Edit Data</h4>
 
                 <!-- Striped Rows -->
                 <div class="card">
@@ -32,13 +32,14 @@
                       <h5 class="mb-0">Edit Data Vehicles</h5>
                     </div>
                     <div class="card-body">
-                      <form action="{{ route('vehicle.update', $vehicle) }}" method="POST">
+                      <form action="{{ route('vehicle.update', $vehicle) }}" method="POST" onsubmit="showEditVehicleConfirmationModal(event)">
                         @csrf
                         @method('PUT')
                         <div class="row mb-3">
                           <label class="col-sm-2 col-form-label" for="basic-default-name">Nama Customer</label>
                           <div class="col-sm-10">
-                            <input type="text" class="form-control" value="{{ $vehicle->customer_id }}" name="customer_id" id="basic-default-name" placeholder="Silahkan isi" />
+                            <input type="text" class="form-control" value="{{ $vehicle->customer->name }}" id="basic-default-name" placeholder="Silahkan isi" readonly/>
+                            <input type="hidden" class="form-control" value="{{ $vehicle->customer_id }}" name="customer_id" id="basic-default-name" placeholder="Silahkan isi" readonly/>
                           </div>
                         </div>
                         <div class="row mb-3">
@@ -102,6 +103,24 @@
                           </div>
                         </div>
                       </form>
+                      <script>
+                          function showEditVehicleConfirmationModal(event) {
+                              event.preventDefault(); // Prevent form submission
+                      
+                              // Show the editVehicle confirmation modal
+                              $('#editVehicleConfirmationModal').modal('show');
+                      
+                              // Add a click event listener to the "editVehicle" button inside the modal
+                              $('#editVehicleButton').on('click', function () {
+                                  // Submit the form after the user confirms the deletion
+                                  event.target.submit();
+                      
+                                  // Hide the editVehicle confirmation modal
+                                  $('#editVehicleConfirmationModal').modal('hide');
+
+                              });
+                          }
+                        </script>
                       </div>
                   </div>
                 </div>
