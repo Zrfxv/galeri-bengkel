@@ -54,7 +54,7 @@ class VehicleController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdatevehicleRequest $request, Vehicle $vehicle)
+    public function update(UpdatevehicleRequest $request, vehicle $vehicle)
     {
         $vehicle->update($request->all());
         return redirect()->to(route('vehicle.index'));
