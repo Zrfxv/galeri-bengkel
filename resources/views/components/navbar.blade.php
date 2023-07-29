@@ -91,8 +91,7 @@
             type="button"
             class="btn-close"
             data-bs-dismiss="modal"
-            aria-label="Close"
-          ></button>
+            aria-label="Close"></button>
         </div>
         
         <form action="{{ route('users.update', ['user' => auth()->user()->id]) }}" method="POST" onsubmit="showProfileConfirmationModal(event)">
@@ -167,7 +166,7 @@
           </script>
       </div>
     </div>
-  </div>
+</div>
  <!-- / Navbar -->
 
 
@@ -484,3 +483,7 @@
         </div>
     </div>
   </div>
+
+
+
+ <!-- / Navbar -->
