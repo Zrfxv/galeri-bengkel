@@ -76,7 +76,7 @@
                                           event.preventDefault(); // Prevent form submission
                                   
                                           // Show the deleteCostumer confirmation modal
-                                          $('#deleteCostumerConfirmationModal').modal('show');
+                                          $('#deleteCustomerConfirmationModal').modal('show');
                                   
                                           // Add a click event listener to the "DeleteCostumer" button inside the modal
                                           $('#deleteCostumerButton').on('click', function () {
@@ -84,7 +84,7 @@
                                               event.target.submit();
                                   
                                               // Hide the deleteCostumer confirmation modal
-                                              $('#deleteCostumerConfirmationModal').modal('hide');
+                                              $('#deleteCustomerConfirmationModal').modal('hide');
                                           });
                                       }
                                     </script>
