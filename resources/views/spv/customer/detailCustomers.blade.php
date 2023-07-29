@@ -25,6 +25,8 @@
               <div class="container-xxl flex-grow-1 container-p-y">
                 <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Data /Customers /</span>Detail</h4>
 
+                <h5 class="py-3 my-4"><span class="text-muted fw-light">Customer</span> <b style="color: #696cff;">{{ $customer->name }}</b> ( <b style="color: #02bd2b;">{{ $customer->phone }}</b> )</h5>
+
 
                 <div class="row">
                   <div class="col-xl-12">
@@ -150,6 +152,8 @@
                     </div>
                   </div>
                 </div>
+                                                    
+                <a href="#" onclick="window.history.back()" class="btn btn-success">Back</a>
                 <!-- Tabs -->
 
               </div>
