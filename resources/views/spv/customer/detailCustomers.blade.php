@@ -72,6 +72,52 @@
                 </script>
               @endif
 
+              @if(session('tambahServ-success'))
+                <script>
+                    // Fungsi untuk menampilkan popup notifikasi
+                    function showNotification(message) {
+                        // Buat elemen div untuk popup notifikasi
+                        var notificationDiv = document.createElement('div');
+                        notificationDiv.className = 'notification-popup';
+                        notificationDiv.innerText = message;
+            
+                        // Tambahkan elemen div ke dalam body
+                        document.body.appendChild(notificationDiv);
+            
+                        // Hapus popup notifikasi setelah beberapa detik (misalnya 3 detik)
+                        setTimeout(function () {
+                            document.body.removeChild(notificationDiv);
+                        }, 3000);
+                    }
+            
+                    // Panggil fungsi showNotification dengan pesan notifikasi dari sesi
+                    showNotification("{{ session('tambahServ-success') }}");
+                </script>
+              @endif
+
+              @if(session('hapusServ-success'))
+                <script>
+                    // Fungsi untuk menampilkan popup notifikasi
+                    function showNotification(message) {
+                        // Buat elemen div untuk popup notifikasi
+                        var notificationDiv = document.createElement('div');
+                        notificationDiv.className = 'notification-popup';
+                        notificationDiv.innerText = message;
+            
+                        // hapuskan elemen div ke dalam body
+                        document.body.appendChild(notificationDiv);
+            
+                        // Hapus popup notifikasi setelah beberapa detik (misalnya 3 detik)
+                        setTimeout(function () {
+                            document.body.removeChild(notificationDiv);
+                        }, 3000);
+                    }
+            
+                    // Panggil fungsi showNotification dengan pesan notifikasi dari sesi
+                    showNotification("{{ session('hapusServ-success') }}");
+                </script>
+              @endif
+
                 <h5 class="py-3 my-4"><span class="text-muted fw-light">Customer</span> <b style="color: #696cff;">{{ $customer->name }}</b> ( <b style="color: #02bd2b;">{{ $customer->phone }}</b> )</h5>
 
 

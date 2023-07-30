@@ -56,7 +56,7 @@ class ServiceController extends Controller
      */
     public function edit(service $service)
     {
-        return view('spv.service.ubahServices', compact('service'));
+        return view('spv.service.ubahServices', compact('service'))->with('tambahServ-success', 'Data Berhasil Disimpan!');
     }
 
     /**
@@ -64,10 +64,9 @@ class ServiceController extends Controller
      */
     public function update(UpdateserviceRequest $request, service $service)
     {
-        dd($request->all());
-        // NOT YET FINISHED
+  
         $service->update($request->all());
-        return redirect()->to(route('service.index'));
+        return redirect()->to(route('service.index'))->with('tambahServ-success', 'Data Berhasil Disimpan!');
     }
 
     /**
@@ -76,6 +75,6 @@ class ServiceController extends Controller
     public function destroy(service $service)
     {
         $service->delete();
-        return redirect()->to(route('service.index'));
+        return redirect()->to(route('service.index'))->with('hapusServ-success', 'Data Berhasil Dihapus!');
     }
 }
