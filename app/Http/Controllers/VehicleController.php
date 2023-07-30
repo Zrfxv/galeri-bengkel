@@ -48,7 +48,7 @@ class VehicleController extends Controller
      */
     public function edit(vehicle $vehicle)
     {
-        return view('spv.vehicles.ubahVehicles', compact('vehicle'));
+        return view('spv.vehicles.ubahVehicles', compact('vehicle'))->with('tambahVehi-success', 'Data Berhasil Disimpan!');
     }
 
     /**
@@ -57,7 +57,7 @@ class VehicleController extends Controller
     public function update(UpdatevehicleRequest $request, vehicle $vehicle)
     {
         $vehicle->update($request->all());
-        return redirect()->route('customer.show', ['customer' => $vehicle->customer_id]);
+        return redirect()->route('customer.show', ['customer' => $vehicle->customer_id])->with('tambahVehi-success', 'Data Berhasil Disimpan!');
     }    
 
     /**
@@ -66,6 +66,6 @@ class VehicleController extends Controller
     public function destroy(Vehicle $vehicle)
     {
         $vehicle->delete();
-        return redirect()->route('customer.show', ['customer' => $vehicle->customer_id]);
+        return redirect()->route('customer.show', ['customer' => $vehicle->customer_id])->with('hapusVehi-success', 'Data Berhasil Dihapus!');
     }
 }
