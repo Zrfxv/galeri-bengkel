@@ -38,7 +38,7 @@ class CustomerController extends Controller
         } catch (\Throwable $th) {
             throw $th;
         }
-        return redirect()->to(route('customer.index'));
+        return redirect()->to(route('customer.index'))->with('tambahCusto-success', 'Data Berhasil Disimpan!');
 
     }
 
@@ -68,7 +68,7 @@ class CustomerController extends Controller
     public function update(UpdatecustomerRequest $request, customer $customer)
     {
         $customer->update($request->all());
-        return redirect()->to(route('customer.index'));
+        return redirect()->to(route('customer.index'))->with('tambahCusto-success', 'Data Berhasil Disimpan!');
     }
 
     /**
@@ -77,6 +77,6 @@ class CustomerController extends Controller
     public function destroy(customer $customer)
     {
         $customer->delete();
-        return redirect()->to(route('customer.index'));
+        return redirect()->to(route('customer.index'))->with('tambahCusto-success', 'Data Berhasil Dihapus!');
     }
 }
