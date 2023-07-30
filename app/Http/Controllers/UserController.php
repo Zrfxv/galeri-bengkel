@@ -42,7 +42,7 @@ class UserController extends Controller
         } catch (\Throwable $th) {
             // throw $th;
         }
-        return redirect()->to(route('users.index'));
+        return redirect()->to(route('users.index'))->with('tambah-success', 'Data Berhasil Disimpan!');
     }
 
     /**
@@ -82,7 +82,7 @@ class UserController extends Controller
                 'role' => $request->role,
             ]);
         }
-        return redirect()->to(route('users.index'));
+        return redirect()->to(route('users.index'))->with('tambah-success', 'Data Berhasil Disimpan!');
     }
 
     /**
@@ -91,6 +91,6 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         $user->delete();
-        return redirect()->to(route('users.index'));
+        return redirect()->to(route('users.index'))->with('hapus-success', 'Data Berhasil Dihapus!');
     }
 }
