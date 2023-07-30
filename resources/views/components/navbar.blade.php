@@ -59,6 +59,29 @@
         </div>
     </nav>
 
+                    @if(session('login-success'))
+                        <script>
+                            // Fungsi untuk menampilkan popup notifikasi
+                            function showNotification(message) {
+                                // Buat elemen div untuk popup notifikasi
+                                var notificationDiv = document.createElement('div');
+                                notificationDiv.className = 'notification-popup';
+                                notificationDiv.innerText = message;
+                    
+                                // Tambahkan elemen div ke dalam body
+                                document.body.appendChild(notificationDiv);
+                    
+                                // Hapus popup notifikasi setelah beberapa detik (misalnya 3 detik)
+                                setTimeout(function () {
+                                    document.body.removeChild(notificationDiv);
+                                }, 3000);
+                            }
+                    
+                            // Panggil fungsi showNotification dengan pesan notifikasi dari sesi
+                            showNotification("{{ session('login-success') }}");
+                        </script>
+                    @endif
+
     <!-- Modal logout -->
     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">

@@ -24,9 +24,14 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended('/service');
+        
+            // Tambahkan notifikasi berhasil login ke sesi
+            return redirect()->intended('/service')->with('login-success', 'Login Berhasil!');
         }
-        return back()->with('login-error','Username atau password salah');
+        
+        return back()->with('login-error', 'Username atau password salah');
+        
+        
     }
     
     public function logout(Request $request)
