@@ -40,7 +40,8 @@ class ServiceController extends Controller
         dd($request->all());
         service::create($request->all());
         // NOT YET FINISHED
-        return redirect()->to(route('service.index'));
+        return redirect()->to(route('service.index'))->with('tambahServ-success', 'Data Berhasil Disimpan!');
+        
     }
 
     /**
