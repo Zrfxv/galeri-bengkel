@@ -36,7 +36,7 @@ class MechanicController extends Controller
         } catch (\Throwable $th) {
             throw $th;
         }
-        return redirect()->to(route('mechanic.index'));
+        return redirect()->to(route('mechanic.index'))->with('tambahMecha-success', 'Data Berhasil Disimpan!');
     }
 
     /**
@@ -64,7 +64,7 @@ class MechanicController extends Controller
     {
         //
         $mechanic->update($request->all());
-        return redirect()->to(route('mechanic.index'));
+        return redirect()->to(route('mechanic.index'))->with('tambahMecha-success', 'Data Berhasil Disimpan!');
     }
 
     /**
@@ -73,6 +73,6 @@ class MechanicController extends Controller
     public function destroy(Mechanic $mechanic)
     {
         $mechanic->delete();
-        return redirect()->to(route('mechanic.index'));
+        return redirect()->to(route('mechanic.index'))->with('hapusMecha-success', 'Data Berhasil Dihapus!');
     }
 }

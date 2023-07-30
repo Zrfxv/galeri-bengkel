@@ -25,6 +25,52 @@
               <div class="container-xxl flex-grow-1 container-p-y">
                 <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Data /</span> Mechanics</h4>
 
+                @if(session('tambahMecha-success'))
+                <script>
+                    // Fungsi untuk menampilkan popup notifikasi
+                    function showNotification(message) {
+                        // Buat elemen div untuk popup notifikasi
+                        var notificationDiv = document.createElement('div');
+                        notificationDiv.className = 'notification-popup';
+                        notificationDiv.innerText = message;
+            
+                        // Tambahkan elemen div ke dalam body
+                        document.body.appendChild(notificationDiv);
+            
+                        // Hapus popup notifikasi setelah beberapa detik (misalnya 3 detik)
+                        setTimeout(function () {
+                            document.body.removeChild(notificationDiv);
+                        }, 3000);
+                    }
+            
+                    // Panggil fungsi showNotification dengan pesan notifikasi dari sesi
+                    showNotification("{{ session('tambahMecha-success') }}");
+                </script>
+              @endif
+
+              @if(session('hapusMecha-success'))
+                <script>
+                    // Fungsi untuk menampilkan popup notifikasi
+                    function showNotification(message) {
+                        // Buat elemen div untuk popup notifikasi
+                        var notificationDiv = document.createElement('div');
+                        notificationDiv.className = 'notification-popup';
+                        notificationDiv.innerText = message;
+            
+                        // hapuskan elemen div ke dalam body
+                        document.body.appendChild(notificationDiv);
+            
+                        // Hapus popup notifikasi setelah beberapa detik (misalnya 3 detik)
+                        setTimeout(function () {
+                            document.body.removeChild(notificationDiv);
+                        }, 3000);
+                    }
+            
+                    // Panggil fungsi showNotification dengan pesan notifikasi dari sesi
+                    showNotification("{{ session('hapusMecha-success') }}");
+                </script>
+              @endif
+
                 <!-- Striped Rows -->
                 <div class="card">
                   <div class="table-responsive text-nowrap">
