@@ -37,7 +37,8 @@
                           <div class="row mb-3">
                             <label class="col-sm-2 col-form-label" for="basic-default-name">Nama</label>
                             <div class="col-sm-10">
-                              <input type="text" class="form-control" name="name" id="basic-default-name" placeholder="Silahkan isi" />
+                              <input type="text" class="form-control" name="name" id="basic-default-name" placeholder="Silahkan isi" required oninvalid="this.setCustomValidity('Harap Diisi Dahulu')" 
+                                                                oninput="this.setCustomValidity('')" />
                             </div>
                           </div>
                           <div class="row mb-3">
@@ -48,7 +49,8 @@
                                 class="form-control" name="phone"
                                 id="basic-default-company"
                                 placeholder="Silahkan isi"
-                              />
+                              required oninvalid="this.setCustomValidity('Harap Diisi Dahulu')" 
+                                                                oninput="this.setCustomValidity('')" />
                             </div>
                           </div>
                           <div class="row mb-3">
@@ -59,7 +61,8 @@
                                 class="form-control" name="email"
                                 id="basic-default-company"
                                 placeholder="Silahkan isi"
-                              />
+                              required oninvalid="this.setCustomValidity('Harap Diisi Dahulu')" 
+                                                                oninput="this.setCustomValidity('')" />
                             </div>
                           </div>
                           <div class="row mb-3">
@@ -70,7 +73,8 @@
                                 class="form-control" name="email"
                                 id="basic-default-company"
                                 placeholder="Silahkan isi"
-                              />
+                              required oninvalid="this.setCustomValidity('Harap Diisi Dahulu')" 
+                                                                oninput="this.setCustomValidity('')" />
                             </div>
                           </div>
                           <div class="row mb-3">
@@ -81,7 +85,8 @@
                                 class="form-control" name="birth"
                                 id="basic-default-company"
                                 placeholder="Silahkan isi"
-                              />
+                              required oninvalid="this.setCustomValidity('Harap Diisi Dahulu')" 
+                                                                oninput="this.setCustomValidity('')" />
                             </div>
                           </div>
                           <div class="row mb-3">
@@ -103,7 +108,8 @@
                                 class="form-control" name="address"
                                 id="basic-default-company"
                                 placeholder="Silahkan isi"
-                              />
+                                required oninvalid="this.setCustomValidity('Harap Diisi Dahulu')" 
+                                oninput="this.setCustomValidity('')" />
                             </div>
                           </div>
                           <div class="row justify-content-end">
