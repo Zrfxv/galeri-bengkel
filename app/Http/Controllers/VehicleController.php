@@ -31,8 +31,13 @@ class VehicleController extends Controller
      */
     public function store(StorevehicleRequest $request)
     {
-        Vehicle::create($request->all());
-        return redirect()->to(route('vehicle.index'));
+
+        try {
+            vehicle::create($request->all());
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+        return redirect()->to(route('vehicle.index'))->with('Vehi-success', 'Data Berhasil Disimpan!');
     }
 
     /**
