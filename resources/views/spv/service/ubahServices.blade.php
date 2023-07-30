@@ -32,15 +32,14 @@
                       <h5 class="mb-0">Edit Data Services</h5>
                     </div>
                     <div class="card-body">
-                      <form action="{{ route('service.update', $service) }}" method="POST">
+                      <form action="{{ route('service.update', $service) }}" method="POST" onsubmit="showEditServiceConfirmationModal(event)">
                         @csrf
                         @method('PUT')
                           <div class="row mb-3">
                             <label class="col-sm-2 col-form-label" for="basic-default-name">Nama Customer</label>
                             <div class="col-sm-10">
-                              <input type="text" class="form-control" name="name" id="basic-default-name" value="{{ $service->user->name }}" readonly/>
-                              <input type="hidden" class="form-control" name="name" id="basic-default-name" value="{{ $service->vehicle_id }}" readonly/>
-                              <input type="hidden" class="form-control" name="name" id="basic-default-name" value="{{ $service->user_id }}" readonly/>
+                              <input type="text" class="form-control" id="basic-default-name" value="{{ $service->user->name }}" readonly/>
+                              <input type="hidden" class="form-control" name="vehicle_id" id="basic-default-name" value="{{ $service->vehicle_id }}" readonly/>
                             </div>
                           </div>
                           <div class="row mb-3">
@@ -59,7 +58,7 @@
                             <div class="col-sm-10">
                               <input
                                 type="text"
-                                class="form-control" name="address"
+                                class="form-control" name="kilometers"
                                 id="basic-default-company"
                                 value="{{ $service->kilometers }}"
                               />
@@ -74,7 +73,7 @@
                                 class="form-control"
                                 aria-label="Hi, Do you have a moment to talk Joe?"
                                 aria-describedby="basic-icon-default-message2"
-                                
+                                name="problem"
                               >{{ $service->problem }}</textarea>
                             </div>
                           </div>
@@ -85,6 +84,23 @@
                             </div>
                           </div>
                         </form>
+                        <script>
+                            function showEditServiceConfirmationModal(event) {
+                                event.preventDefault(); // Prevent form submission
+                        
+                                // Show the editService confirmation modal
+                                $('#editServiceConfirmationModal').modal('show');
+                        
+                                // Add a click event listener to the "editService" button inside the modal
+                                $('#editServiceButton').on('click', function () {
+                                    // Submit the form after the user confirms the deletion
+                                    event.target.submit();
+                        
+                                    // Hide the editService confirmation modal
+                                    $('#editServiceConfirmationModal').modal('hide');
+                                });
+                            }
+                          </script>
                       </div>
                   </div>
                 </div>
