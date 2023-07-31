@@ -33,7 +33,8 @@
                                         <h5 class="mb-0">Add Data Services</h5>
                                     </div>
                                     <div class="card-body">
-                                        <form action="{{ route('service.store') }}" method="POST" onsubmit="showAddServiceConfirmationModal(event)">
+                                        {{-- <form action="{{ route('service.store') }}" method="POST" onsubmit="showAddServiceConfirmationModal(event)"> --}}
+                                        <form action="{{ route('service.store') }}" method="POST">
                                             @csrf
 
                                             <div class="row">
@@ -45,6 +46,7 @@
 
                                                             <select class="form-select select2"
                                                                 id="exampleFormControlSelect1"
+                                                                name="user_id"
                                                                 aria-label="Default select example">
                                                                 <option selected>Select Customer</option>
 
