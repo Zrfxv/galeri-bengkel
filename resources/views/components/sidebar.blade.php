@@ -26,12 +26,12 @@
           <div data-i18n="Tables">Customers</div>
         </a>
       </li>
-      <li class="menu-item">
+<!--       <li class="menu-item">
         <a href="{{ route('vehicle.index') }}" class="menu-link">
           <i class="menu-icon tf-icons bx bxs-car"></i>
           <div data-i18n="Tables">Vehicles</div>
         </a>
-      </li>
+      </li>-->
       @if (auth()->user()->role != 1)
       <li class="menu-item">
         <a href="{{ route('mechanic.index') }}" class="menu-link">
