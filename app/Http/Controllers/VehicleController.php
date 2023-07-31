@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StorevehicleRequest;
 use App\Http\Requests\UpdatevehicleRequest;
 use App\Models\vehicle;
+use App\Models\service;
 
 class VehicleController extends Controller
 {
@@ -37,7 +38,7 @@ class VehicleController extends Controller
         } catch (\Throwable $th) {
             throw $th;
         }
-        return redirect()->to(route('vehicle.index'))->with('Vehi-success', 'Data Berhasil Disimpan!');
+        return redirect()->to(route('service.index'))->with('tambahServ-success', 'Data Berhasil Disimpan!');
     }
 
     /**

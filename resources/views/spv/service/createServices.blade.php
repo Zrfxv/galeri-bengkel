@@ -65,7 +65,7 @@
 
                                                     @foreach ($vehicles as $vehicle)
                                                         <option value={{ $vehicle->id }}>
-                                                            {{ $vehicle->license_plate }}</option>
+                                                            {{ $vehicle->id }}</option>
                                                     @endforeach
                                                 </select>
 
