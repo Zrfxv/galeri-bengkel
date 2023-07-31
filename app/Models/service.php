@@ -11,7 +11,6 @@ class Service extends Model
 
     protected $guarded = ['id'];
 
-    // protected $with = ['customer', 'user', 'mechanic']; // INI ERROR CUSTOMER, MAKSUDNYA VEHICLE ?
     protected $with = ['vehicle', 'user', 'mechanic'];
 
     public function vehicle()
