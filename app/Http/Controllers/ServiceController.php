@@ -39,7 +39,6 @@ class ServiceController extends Controller
     {
         service::create($request->all());
         return redirect()->to(route('service.index'))->with('tambahServ-success', 'Data Berhasil Disimpan!');
-        
     }
 
     /**
@@ -63,7 +62,7 @@ class ServiceController extends Controller
      */
     public function update(UpdateserviceRequest $request, service $service)
     {
-  
+
         $service->update($request->all());
         return redirect()->to(route('service.index'))->with('tambahServ-success', 'Data Berhasil Disimpan!');
     }

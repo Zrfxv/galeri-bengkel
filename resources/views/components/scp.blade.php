@@ -26,16 +26,15 @@
 <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js"
     integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
 <script>
     $(document).ready(function() {
         $('.select2').select2();
     });
 </script>
-
 <script>
     function showSuccessModal() {
         // Show the success modal
         $('#successModal').modal('show');
     }
 </script>
-
