@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateserviceRequest;
 use App\Models\Customer;
 use App\Models\service;
 use App\Models\Vehicle;
+use Illuminate\Http\Request;
 
 class ServiceController extends Controller
 {
@@ -15,7 +16,6 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        // dump(service::find(1));
         return view('spv.service.viewServices', [
             'services' => service::all()
         ]);
@@ -37,9 +37,7 @@ class ServiceController extends Controller
      */
     public function store(StoreserviceRequest $request)
     {
-        dd($request->all());
         service::create($request->all());
-        // NOT YET FINISHED
         return redirect()->to(route('service.index'))->with('tambahServ-success', 'Data Berhasil Disimpan!');
         
     }
