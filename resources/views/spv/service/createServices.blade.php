@@ -34,9 +34,9 @@
                                     </div>
                                     <div class="card-body">
                                         {{-- <form action="{{ route('service.store') }}" method="POST" onsubmit="showAddServiceConfirmationModal(event)"> --}}
-                                        <form action="{{ route('service.store') }}" method="POST"
-                                            onsubmit="showAddServiceConfirmationModal(event)>
-                                            @csrf
+                                            <form action="{{ route('service.store') }}" method="POST"  onsubmit="showAddSConfirmationModal(event)">
+                                                @csrf
+    
 
                                             <div class="row">
                                             <div class="col-md-5">
@@ -132,22 +132,22 @@
                                     </div>
                                     </form>
                                     <script>
-                                        function showAddServiceConfirmationModal(event) {
+                                        function showAddSConfirmationModal(event) {
                                             event.preventDefault(); // Prevent form submission
-
-                                            // Show the addService confirmation modal
-                                            $('#addServiceConfirmationModal').modal('show');
-
-                                            // AddService a click event listener to the "addService" button inside the modal
-                                            $('#addServiceButton').on('click', function() {
+                                    
+                                            // Show the addS confirmation modal
+                                            $('#addSConfirmationModal').modal('show');
+                                    
+                                            // AddS a click event listener to the "addS" button inside the modal
+                                            $('#addSButton').on('click', function () {
                                                 // Submit the form after the user confirms the deletion
                                                 event.target.submit();
-
-                                                // Hide the addService confirmation modal
-                                                $('#addServiceConfirmationModal').modal('hide');
+                                    
+                                                // Hide the addS confirmation modal
+                                                $('#addSConfirmationModal').modal('hide');
                                             });
                                         }
-                                    </script>
+                                      </script>
 
                                 </div>
                             </div>
