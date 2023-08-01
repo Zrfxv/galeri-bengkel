@@ -276,7 +276,7 @@
                                         Customer</label>
                                     <div class="col-sm-10">
 
-                                        <select class="form-control" name=""
+                                        <select class="form-control" name="customer_id"
                                             aria-label="Default select example">
                                             <option selected>Select Customer</option>
 
